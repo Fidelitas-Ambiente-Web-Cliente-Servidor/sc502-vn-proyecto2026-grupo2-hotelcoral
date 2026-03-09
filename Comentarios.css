@@ -1,0 +1,343 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    margin: 0;
+    background: #f5f9f8;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to bottom, #e6f4f3, #ffffff);
+}
+
+/* Sección */
+
+.ComentariosSection {
+    width: 90%;
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+
+.TituloComentarios{
+    font-family:'Zain', sans-serif;
+    font-size:40px;
+    text-align:center;
+    margin-top:40px;
+}
+
+.SubtituloComentarios{
+    text-align:center;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.ComentariosSection h1 {
+    font-family: 'Zain', sans-serif;
+    font-size: 34px;
+    text-align: center;
+    color: #1c6b73;
+    margin-bottom: 10px;
+}
+
+.ComentariosSection p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ComentariosSection{
+    margin:30px auto 60px auto;
+}
+
+/* Campos */
+
+.Campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Inputs */
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea{
+    width:100%;
+    resize:none;
+    min-height:100px;
+    margin-bottom:15px;
+    font-family:'Quicksand', sans-serif;
+}
+
+::placeholder{
+    color:#999;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border:1px solid #1c6b73;
+    box-shadow:0 0 5px rgba(28,107,115,0.3);
+}
+
+/* Comentario */
+
+.ComentarioHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.CalificacionHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.CalificacionHeader span{
+    font-size:14px;
+    font-family:'Quicksand', sans-serif;
+}
+
+/* Estrellas */
+
+.Estrellas {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 32px;
+}
+
+.Estrellas input {
+    display: none;
+}
+
+.Estrellas label {
+    color: #dcdcdc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Estrellas input:checked~label {
+    color: #f4b400;
+}
+
+.Estrellas label:hover,
+.Estrellas label:hover~label {
+    color: #f4b400;
+}
+
+/* Botón */
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1c6b73;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #14545a;
+}
+
+
+/* Tarjetas de comentarios */
+
+.ComentariosRecientes {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.ComentariosRecientes h2 {
+    font-family: 'Zain', sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.TarjetaComentario {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.TarjetaComentario h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.EstrellasComentario {
+    color: #f5b301;
+    margin: 5px 0;
+}
+
+.TarjetaComentario p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Header tarjeta */
+
+.ComentarioHeaderTarjeta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+/* INfo usuario */
+
+.UsuarioInfo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* Avatar */
+
+.Avatar{
+    width:40px;
+    height:40px;
+    background:#1c6b73;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-weight:bold;
+}
+
+/* Lugar visitado */
+
+.Lugar{
+    font-size:13px;
+    color:#6b6b6b;
+}
+
+/* Estrellas */
+
+.EstrellasComentario{
+    color:#f5b301;
+    font-size:18px;
+}
+
+.TarjetaComentario{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.TarjetaComentario:hover{
+    transform:translateY(-3px);
+}
+
+/* Respuesta del hotel */
+
+.RespuestaHotel{
+    margin-top:15px;
+    padding:15px;
+    background:#f4f9f8;
+    border-radius:10px;
+}
+
+.AdminInfo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:5px;
+}
+
+.AvatarAdmin{
+    width:30px;
+    height:30px;
+    background:#1c6b73;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:14px;
+}
+
+.RespuestaHotel p{
+    margin:0;
+    font-size:14px;
+    color:#444;
+}
+
+.RespuestaHotel::before{
+    content:"Respuesta del hotel";
+    font-size:12px;
+    color:#6b6b6b;
+    display:block;
+    margin-bottom:5px;
+}
+
+/* Clasificación */
+
+.ClasificacionHotel{
+    text-align:center;
+    margin:40px auto;
+}
+
+.ClasificacionHotel h2{
+    font-family:'Zain', sans-serif;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.PromedioEstrellas{
+    color:#f5b301;
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.PromedioTexto{
+    font-size:14px;
+    color:#6b6b6b;
+}
+
+.ClasificacionHotel{
+    text-align:center;
+    margin:40px auto;
+    border-top:1px solid #e5e5e5;
+    padding-top:30px;
+}
+
+
+.TextoFinalComentarios{
+    text-align:center;
+    margin:40px auto;
+    font-size:14px;
+    color:#6b6b6b;
+    width:80%;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios | Hotel Coral</title>
+    <link rel="stylesheet" href="Comentarios.css">
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Zain&family=Quicksand&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>header PENDIENTE</h1>
+    </header>
+
+
+
+    <!-- Comentarios -->
+    <h1 class="TituloComentarios">
+        Comentarios de nuestros huéspedes
+    </h1>
+
+    <section class="ComentariosSection">
+
+        <p class="SubtituloComentarios">
+            Comparte tu experiencia en Hotel Coral 🐚
+        </p>
+
+        <form class="FormularioComentarios">
+
+            <div class="Campo">
+                <label>Nombre</label>
+                <input type="text" placeholder="Escribe tu nombre">
+            </div>
+
+            <div class="Campo">
+                <label>Correo</label>
+                <input type="email" placeholder="ejemplo@email.com">
+            </div>
+
+            <div class="Campo">
+                <label>Ubicación visitada</label>
+                <select>
+                    <option>Puntarenas</option>
+                    <option>Limón</option>
+                    <option>Guanacaste</option>
+                </select>
+            </div>
+
+            <div class="ComentarioContainer">
+
+                <div class="ComentarioHeader">
+
+                    <label>Comentario</label>
+
+                    <div class="CalificacionHeader">
+                        <span>Calificación</span>
+
+                        <div class="Estrellas">
+
+                            <input type="radio" name="rating" id="star5">
+                            <label for="star5">★</label>
+
+                            <input type="radio" name="rating" id="star4">
+                            <label for="star4">★</label>
+
+                            <input type="radio" name="rating" id="star3">
+                            <label for="star3">★</label>
+
+                            <input type="radio" name="rating" id="star2">
+                            <label for="star2">★</label>
+
+                            <input type="radio" name="rating" id="star1">
+                            <label for="star1">★</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <textarea rows="4" placeholder="Cuéntanos tu experiencia..."></textarea>
+
+            </div>
+
+
+
+            <button type="submit">Enviar comentario</button>
+
+        </form>
+
+    </section>
+
+    <section class="ClasificacionHotel">
+
+        <h2>Calificación de huéspedes</h2>
+
+        <div class="PromedioEstrellas">
+            ★★★★★
+        </div>
+
+        <p class="PromedioTexto">
+            4.8 / 5 basado en 126 comentarios</p>
+    </section>
+
+
+
+    <!-- Lista de Comentarios -->
+    <section class="ComentariosRecientes">
+
+        <h2>Comentarios recientes</h2>
+
+        <!-- Stacy -->
+        <div class="TarjetaComentario">
+            <div class="ComentarioHeaderTarjeta">
+                <div class="UsuarioInfo">
+                    <div class="Avatar">S</div>
+                    <div>
+                        <h3>Stacy Ramírez</h3>
+                        <span class="Lugar">Puntarenas</span>
+                    </div>
+                </div>
+                <div class="EstrellasComentario">
+                    ★★★★★
+                </div>
+            </div>
+            <p> El hotel fue increíble, la vista al mar y el servicio fueron excelentes.
+                Definitivamente volvería. </p>
+
+            <!-- RESPUESTA DEL HOTEL -->
+
+            <div class="RespuestaHotel">
+                <div class="AdminInfo">
+                    <div class="AvatarAdmin">H</div>
+                    <strong>Hotel Coral</strong>
+                </div>
+                <p>Muchas gracias por tu visita Stacy. Nos alegra saber que disfrutaste la
+                    vista al mar y nuestro servicio. ¡Esperamos recibirte nuevamente pronto!</p>
+            </div>
+
+        </div>
+
+        <!-- Dyban -->
+        <div class="TarjetaComentario">
+            <div class="ComentarioHeaderTarjeta">
+                <div class="UsuarioInfo">
+                    <div class="Avatar">D</div>
+                    <div>
+                        <h3>Dyban León</h3>
+                        <span class="Lugar">Guanacaste</span>
+                    </div>
+                </div>
+                <div class="EstrellasComentario">
+                    ★★★★☆
+                </div>
+            </div>
+            <p>Me encantó la vista al mar en Guanacaste. Muy buena atención del personal.</p>
+
+            <div class="RespuestaHotel">
+                <div class="AdminInfo">
+                    <div class="AvatarAdmin">H</div>
+                    <strong>Hotel Coral</strong>
+                </div>
+                <p>Gracias por compartir tu experiencia Dyban. Nos alegra saber que disfrutaste
+                    tu estancia en Guanacaste. ¡Te esperamos nuevamente!</p>
+            </div>
+        </div>
+
+        <!-- Alessandra -->
+        <div class="TarjetaComentario">
+            <div class="ComentarioHeaderTarjeta">
+                <div class="UsuarioInfo">
+                    <div class="Avatar">A</div>
+                    <div>
+                        <h3>Alessandra Meza</h3>
+                        <span class="Lugar">Limon</span>
+                    </div>
+                </div>
+                <div class="EstrellasComentario">
+                    ★★★☆☆
+                </div>
+            </div>
+            <p>El hotel en Limón es hermoso, muy cerca de la playa y el personal es muy amable.</p>
+        </div>
+
+        <p class="TextoFinalComentarios">
+            Nuestros huéspedes siguen compartiendo sus experiencias en Hotel Coral. ¡Déjanos saber la tuya!
+        </p>
+
+        <p class="TextoFinalComentarios">
+            Ver más comentarios...
+        </p>
+
+    </section>
+
+
+    <footer>
+        <br>
+        <p>@footer PENDIENTE</p>
+    </footer>
+
+
+</body>
+
+
+</html>
