@@ -1,0 +1,163 @@
+.PiePaginaPrincipal {
+    width: 100%;
+    background: linear-gradient(180deg, #f3ede3 0%, #efe5d7 100%);
+    border-top: 1px solid rgba(44, 110, 127, 0.10);
+    margin-top: 60px;
+}
+
+.ContenedorPiePagina {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 48px 28px 30px 28px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+.BloquePiePagina {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.BloqueMarcaPiePagina {
+    padding-right: 20px;
+}
+
+.MarcaPiePagina {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.LogoPiePagina {
+    width: 170px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.DescripcionPiePagina {
+    margin: 0;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: rgba(36, 50, 56, 0.88);
+    max-width: 320px;
+}
+
+.TituloPiePagina {
+    margin: 0;
+    font-family: "Zain", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: var(--OceanDeep);
+}
+
+.ListaPiePagina {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.EnlacePiePagina {
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--TextDark);
+    transition: var(--TransicionSuave);
+    width: fit-content;
+}
+
+.EnlacePiePagina:hover {
+    color: var(--OceanDeep);
+}
+
+.BarraInferiorPiePagina {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 18px 28px 20px 28px;
+    border-top: 1px solid rgba(44, 110, 127, 0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.TextoInferiorPiePagina {
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: rgba(36, 50, 56, 0.72);
+}
+
+@media (max-width: 1100px) {
+    .ContenedorPiePagina {
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 28px;
+    }
+
+    .BloqueMarcaPiePagina {
+        grid-column: 1 / -1;
+        padding-right: 0;
+    }
+
+    .DescripcionPiePagina {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .ContenedorPiePagina {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 20px 26px 20px;
+        gap: 24px;
+    }
+
+    .BarraInferiorPiePagina {
+        padding: 16px 20px 18px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .LogoPiePagina {
+        width: 155px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ContenedorPiePagina {
+        grid-template-columns: 1fr;
+        padding: 34px 14px 22px 14px;
+        gap: 22px;
+    }
+
+    .TituloPiePagina {
+        font-size: 1.4rem;
+    }
+
+    .DescripcionPiePagina {
+        font-size: 0.94rem;
+    }
+
+    .EnlacePiePagina {
+        font-size: 0.92rem;
+    }
+
+    .TextoInferiorPiePagina {
+        font-size: 0.8rem;
+    }
+
+    .BarraInferiorPiePagina {
+        padding: 14px;
+    }
+}
