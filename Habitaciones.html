@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Coral | hab</title>
+    <title>Hotel Coral | Habitaciones</title>
+
     <link rel="stylesheet" href="css/HeaderStyle.css">
     <link rel="stylesheet" href="css/FooterStyle.css">
     <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Habitaciones.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,15 +23,55 @@
 <body>
     <header id="FragmentoHeader"></header>
 
-    <main>
-        <h1>Contenido de Habitaciones</h1>
-    </main>
+   <main class="ContenidoPrincipal">
+    <section class="SeccionCatalogoHabitaciones">
+        <div class="EncabezadoHabitaciones">
+            <p class="SubtituloHabitaciones">Catálogo público</p>
+            <h1 class="TituloHabitacionesPagina">Nuestras habitaciones</h1>
+            <p class="DescripcionHabitacionesPagina">
+                Explora los tipos de habitación disponibles en Hotel Coral y elige la opción ideal para tu próxima estadía.
+            </p>
+        </div>
+
+        <div id="MensajeHabitaciones" class="MensajeFormulario" aria-live="polite"></div>
+
+        <section class="BloqueFiltrosHabitaciones">
+            <div class="EncabezadoFiltrosHabitaciones">
+                <p class="SubtituloFiltrosBloque">Explora con facilidad</p>
+                <h2 class="TituloFiltrosBloque">Filtra tu experiencia ideal</h2>
+            </div>
+
+            <div class="FormularioFiltrosHabitaciones">
+                <div class="CampoFiltroHabitaciones">
+                    <label for="SelectFiltroHotelPublico">Hotel</label>
+                    <select id="SelectFiltroHotelPublico">
+                        <option value="">Todos los hoteles</option>
+                    </select>
+                </div>
+
+                <div class="CampoFiltroHabitaciones">
+                    <label for="InputBuscarHabitacionPublica">Buscar habitación</label>
+                    <input type="text" id="InputBuscarHabitacionPublica"
+                        placeholder="Nombre del tipo, hotel o descripción">
+                </div>
+            </div>
+        </section>
+
+        <section class="CuadriculaHabitaciones" id="ContenedorTiposHabitacion">
+            <article class="TarjetaHabitacion">
+                <div class="ContenidoTarjetaHabitacion">
+                    <p class="DescripcionTarjetaHabitacion">Cargando habitaciones...</p>
+                </div>
+            </article>
+        </section>
+    </section>
+</main>
 
     <footer id="FragmentoFooter"></footer>
 
-
     <script src="js/CargarFragmento.js"></script>
     <script src="js/Header.js"></script>
+    <script src="js/Publico/Habitaciones.js"></script>
 </body>
 
 </html>

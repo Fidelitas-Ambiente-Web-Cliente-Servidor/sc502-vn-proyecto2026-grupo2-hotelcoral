@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Crear habitación física</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/CrearHabitacionFisica.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin" id="TituloPaginaHabitacionFisica">Crear habitación física</h1>
+                <p class="TextoAdmin" id="TextoPaginaHabitacionFisica">
+                    Registra una habitación real asociada a un hotel y un tipo de habitación.
+                </p>
+            </section>
+
+            <div id="MensajeCrearHabitacionFisica" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin" style="grid-template-columns: 1fr;">
+                <article class="TarjetaAdmin">
+                    <form class="FormularioAdmin" id="FormularioHabitacionFisica" novalidate>
+                        <input type="hidden" id="InputIdHabitacionFisica">
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="SelectHotelHabitacionFisica">Hotel</label>
+                                <select id="SelectHotelHabitacionFisica" required>
+                                    <option value="">Seleccione un hotel</option>
+                                </select>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="SelectTipoHabitacionFisica">Tipo de habitación</label>
+                                <select id="SelectTipoHabitacionFisica" required>
+                                    <option value="">Seleccione un tipo de habitación</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputNumeroHabitacionFisica">Número de habitación</label>
+                                <input type="text" id="InputNumeroHabitacionFisica" placeholder="Ejemplo: 101" required>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="InputPisoHabitacionFisica">Piso</label>
+                                <input type="number" id="InputPisoHabitacionFisica" placeholder="Ejemplo: 1">
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="SelectEstadoHabitacionFisica">Estado</label>
+                                <select id="SelectEstadoHabitacionFisica" required>
+                                    <option value="DISPONIBLE">DISPONIBLE</option>
+                                    <option value="OCUPADA">OCUPADA</option>
+                                    <option value="MANTENIMIENTO">MANTENIMIENTO</option>
+                                    <option value="INACTIVA">INACTIVA</option>
+                                </select>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="TextAreaDescripcionHabitacionFisica">Descripción</label>
+                                <textarea id="TextAreaDescripcionHabitacionFisica" rows="3"
+                                    placeholder="Ejemplo: Cerca del ascensor"></textarea>
+                            </div>
+                        </div>
+
+                       <div class="GrupoCampo">
+    <div class="EncabezadoAmenidadesInline">
+        <div>
+            <label>Amenidades de la habitación</label>
+            <p class="TextoAyudaAmenidades" id="TextoAyudaAmenidadesHabitacionFisica">
+                Selecciona las amenidades disponibles para esta habitación física.
+            </p>
+        </div>
+
+        <div class="AccionesAmenidadesInline">
+            <a href="AdminAmenidades.html" target="_blank" rel="noopener" class="BotonSecundario BotonAmenidadMini">
+                Gestionar amenidades
+            </a>
+            <button type="button" id="BotonRecargarAmenidades" class="BotonSecundario BotonAmenidadMini">
+                Actualizar amenidades
+            </button>
+        </div>
+    </div>
+
+    <div class="GridAmenidadesHabitacion" id="ContenedorAmenidadesHabitacionFisica"></div>
+</div>
+
+                        <div class="FilaBotones">
+                            <button type="submit" class="BotonPrincipal" id="BotonGuardarHabitacionFisica">
+                                Guardar habitación física
+                            </button>
+                            <a href="AdminHabitacionesFisicas.html" class="BotonSecundario">
+                                Volver al listado
+                            </a>
+                        </div>
+                    </form>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/CrearHabitacionFisica.js"></script>
+</body>
+
+</html>

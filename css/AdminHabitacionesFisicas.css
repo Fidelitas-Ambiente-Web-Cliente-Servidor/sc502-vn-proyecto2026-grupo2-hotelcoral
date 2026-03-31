@@ -1,0 +1,61 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(217, 195, 163, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.ContenedorTabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.FilaAccionesAdmin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.EtiquetaEstadoHabitacion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.EtiquetaEstadoHabitacion.Disponible {
+    background: rgba(73, 183, 177, 0.14);
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.EtiquetaEstadoHabitacion.Ocupada {
+    background: rgba(217, 123, 93, 0.14);
+    color: var(--CoralAccent, #D97B5D);
+}
+
+.EtiquetaEstadoHabitacion.Mantenimiento {
+    background: rgba(217, 195, 163, 0.20);
+    color: var(--Driftwood, #9C7E5E);
+}
+
+.EtiquetaEstadoHabitacion.Inactiva {
+    background: rgba(36, 50, 56, 0.08);
+    color: rgba(36, 50, 56, 0.78);
+}
+.TextoAmenidadesListado {
+    display: inline-block;
+    color: #4e3a2d;
+    line-height: 1.5;
+    font-size: 0.92rem;
+}
+
+.TextoAmenidadesVacio {
+    display: inline-block;
+    color: #8a7a6d;
+    font-style: italic;
+    font-size: 0.92rem;
+}

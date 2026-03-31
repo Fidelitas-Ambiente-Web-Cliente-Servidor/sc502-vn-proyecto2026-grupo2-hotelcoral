@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Administración de tipos de habitación</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/AdminTiposHabitacion.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin">Administración de tipos de habitación</h1>
+                <p class="TextoAdmin">
+                    Gestiona el catálogo de tipos de habitación disponibles para cada hotel.
+                </p>
+            </section>
+
+            <div id="MensajeTiposHabitacion" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin">
+                <article class="TarjetaAdmin">
+                    <div class="EncabezadoTarjetaAdmin">
+                        <div>
+                            <h2 class="TituloTarjeta">Acciones rápidas</h2>
+                            <p class="DescripcionTarjeta">
+                                Crea nuevos tipos de habitación o filtra el catálogo existente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="FormularioAdmin">
+                        <div class="GrupoCampo">
+                            <label for="InputBuscarTipoHabitacion">Buscar</label>
+                            <input type="text" id="InputBuscarTipoHabitacion"
+                                placeholder="Nombre del tipo o hotel">
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="SelectFiltroHotelTipoHabitacion">Filtrar por hotel</label>
+                            <select id="SelectFiltroHotelTipoHabitacion">
+                                <option value="">Todos los hoteles</option>
+                            </select>
+                        </div>
+
+                        <div class="FilaBotones">
+                            <a href="CrearTipoHabitacion.html" class="BotonPrincipal">
+                                Crear tipo de habitación
+                            </a>
+                            <a href="Admin.html" class="BotonSecundario">
+                                Volver al panel
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta">Tipos registrados</h2>
+                    <p class="DescripcionTarjeta">
+                        Consulta, edita o cambia el estado de los tipos de habitación del sistema.
+                    </p>
+
+                    <div class="ContenedorTabla">
+                        <table class="TablaUsuarios">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Tipo</th>
+                                    <th>Hotel</th>
+                                    <th>Capacidad</th>
+                                    <th>Camas</th>
+                                    <th>Precio base</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="CuerpoTablaTiposHabitacion">
+                                <tr>
+                                    <td colspan="8">Cargando tipos de habitación...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/AdminTiposHabitacion.js"></script>
+</body>
+
+</html>

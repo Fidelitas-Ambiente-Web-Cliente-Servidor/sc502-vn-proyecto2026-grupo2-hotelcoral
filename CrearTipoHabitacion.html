@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Crear tipo de habitación</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/AdminTiposHabitacion.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin" id="TituloPaginaTipoHabitacion">Crear tipo de habitación</h1>
+                <p class="TextoAdmin" id="TextoPaginaTipoHabitacion">
+                    Registra un nuevo tipo de habitación asociado a un hotel.
+                </p>
+            </section>
+
+            <div id="MensajeCrearTipoHabitacion" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin" style="grid-template-columns: 1fr;">
+                <article class="TarjetaAdmin">
+                    <form class="FormularioAdmin" id="FormularioTipoHabitacion" novalidate>
+                        <input type="hidden" id="InputIdTipoHabitacion">
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="SelectHotelTipoHabitacion">Hotel</label>
+                                <select id="SelectHotelTipoHabitacion" required>
+                                    <option value="">Seleccione un hotel</option>
+                                </select>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="InputNombreTipoHabitacion">Nombre del tipo</label>
+                                <input type="text" id="InputNombreTipoHabitacion" placeholder="Ejemplo: Habitación Deluxe" required>
+                            </div>
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="TextAreaDescripcionTipoHabitacion">Descripción</label>
+                            <textarea id="TextAreaDescripcionTipoHabitacion" rows="4"
+                                placeholder="Describe el tipo de habitación"></textarea>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputCapacidadTipoHabitacion">Capacidad</label>
+                                <input type="number" id="InputCapacidadTipoHabitacion" min="1" placeholder="Ejemplo: 2" required>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="InputCantidadCamasTipoHabitacion">Cantidad de camas</label>
+                                <input type="number" id="InputCantidadCamasTipoHabitacion" min="1" placeholder="Ejemplo: 1" required>
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputPrecioBaseTipoHabitacion">Precio base</label>
+                                <input type="number" id="InputPrecioBaseTipoHabitacion" min="0" step="0.01" placeholder="Ejemplo: 45000" required>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="SelectEstadoTipoHabitacion">Estado</label>
+                                <select id="SelectEstadoTipoHabitacion" required>
+                                    <option value="ACTIVO">ACTIVO</option>
+                                    <option value="INACTIVO">INACTIVO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputUrlImagenTipoHabitacion">URL o ruta de imagen</label>
+                                <input type="text" id="InputUrlImagenTipoHabitacion" placeholder="Recursos/Imagenes/HabitacionDeluxe.png">
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="InputDescripcionImagenTipoHabitacion">Descripción de imagen</label>
+                                <input type="text" id="InputDescripcionImagenTipoHabitacion" placeholder="Vista principal de la habitación">
+                            </div>
+                        </div>
+
+                        <div class="FilaBotones">
+                            <button type="submit" class="BotonPrincipal" id="BotonGuardarTipoHabitacion">
+                                Guardar tipo de habitación
+                            </button>
+                            <a href="AdminTiposHabitacion.html" class="BotonSecundario">
+                                Volver al listado
+                            </a>
+                        </div>
+                    </form>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/CrearTipoHabitacion.js"></script>
+</body>
+
+</html>

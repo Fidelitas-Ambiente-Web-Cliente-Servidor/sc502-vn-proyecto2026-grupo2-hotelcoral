@@ -1,0 +1,335 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(127, 214, 207, 0.18)),
+        var(--SoftCream, #F5EFE6);
+    color: var(--TextDark, #243238);
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+.ContenidoPrincipal {
+    width: 100%;
+}
+
+.SeccionCatalogoHabitaciones {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(32px, 6vw, 72px) 20px 88px;
+}
+
+.EncabezadoHabitaciones {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.SubtituloHabitaciones {
+    margin: 0 0 10px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--SeaTurquoise, #49B7B1);
+}
+
+.TituloHabitacionesPagina {
+    margin: 0 0 12px;
+    font-family: "Zain", sans-serif;
+    font-size: clamp(2.7rem, 5vw, 4.2rem);
+    line-height: 0.95;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.DescripcionHabitacionesPagina {
+    margin: 0;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(36, 50, 56, 0.86);
+}
+
+.MensajeFormulario {
+    display: none;
+    margin-bottom: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.BloqueFiltrosHabitaciones {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 239, 230, 0.95));
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 24px;
+    box-shadow: 0 18px 34px rgba(36, 50, 56, 0.08);
+    padding: 28px 24px;
+    margin-bottom: 34px;
+}
+
+.EncabezadoFiltrosHabitaciones {
+    margin-bottom: 18px;
+}
+
+.SubtituloFiltrosBloque {
+    margin: 0 0 6px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--SeaTurquoise, #49B7B1);
+}
+
+.TituloFiltrosBloque {
+    margin: 0;
+    font-family: "Zain", sans-serif;
+    font-size: 2.2rem;
+    line-height: 0.95;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.FormularioFiltrosHabitaciones {
+    display: grid;
+    grid-template-columns: 0.95fr 1.35fr;
+    gap: 18px;
+    align-items: end;
+}
+
+.CampoFiltroHabitaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.CampoFiltroHabitaciones label {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--TextDark, #243238);
+}
+
+.CampoFiltroHabitaciones select,
+.CampoFiltroHabitaciones input {
+    width: 100%;
+    min-height: 54px;
+    padding: 14px 16px;
+    border: 1px solid rgba(156, 126, 94, 0.22);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.98rem;
+    color: var(--TextDark, #243238);
+    transition: border-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease;
+}
+
+.CampoFiltroHabitaciones input::placeholder {
+    color: rgba(36, 50, 56, 0.55);
+}
+
+.CampoFiltroHabitaciones select:focus,
+.CampoFiltroHabitaciones input:focus {
+    outline: none;
+    border-color: var(--SeaTurquoise, #49B7B1);
+    box-shadow: 0 0 0 4px rgba(73, 183, 177, 0.14);
+    transform: translateY(-1px);
+}
+
+.CuadriculaHabitaciones {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.TarjetaHabitacion {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 34px rgba(36, 50, 56, 0.08);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.TarjetaHabitacion:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 40px rgba(36, 50, 56, 0.12);
+}
+
+.ImagenTarjetaHabitacion {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(44, 110, 127, 0.14), rgba(127, 214, 207, 0.22));
+}
+
+.ImagenRealTarjetaHabitacion {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.36s ease;
+}
+
+.TarjetaHabitacion:hover .ImagenRealTarjetaHabitacion {
+    transform: scale(1.04);
+}
+
+.ContenidoTarjetaHabitacion {
+    padding: 22px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.EncabezadoTarjetaHabitacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.TituloTarjetaHabitacion {
+    margin: 0;
+    font-family: "Zain", sans-serif;
+    font-size: 2rem;
+    line-height: 0.95;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.TextoHotelTarjeta {
+    margin: 6px 0 0;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--CoralAccent, #D97B5D);
+}
+
+.PrecioTarjetaHabitacion {
+    margin: 0;
+    white-space: nowrap;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.PrecioTarjetaHabitacion span {
+    font-size: 0.84rem;
+    color: rgba(36, 50, 56, 0.68);
+    font-weight: 600;
+}
+
+.DescripcionTarjetaHabitacion {
+    margin: 0;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(36, 50, 56, 0.86);
+}
+
+.ListaDetallesTarjeta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.ListaDetallesTarjeta li {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--TextDark, #243238);
+    padding-left: 18px;
+    position: relative;
+}
+
+.ListaDetallesTarjeta li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--SeaTurquoise, #49B7B1);
+}
+
+.BotonTarjetaHabitacion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 12px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--OceanDeep, #2C6E7F), #317f94);
+    color: #ffffff;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(44, 110, 127, 0.18);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.BotonTarjetaHabitacion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(44, 110, 127, 0.22);
+}
+
+.TarjetaVaciaHabitaciones {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 22px;
+    padding: 28px 24px;
+    box-shadow: 0 16px 30px rgba(36, 50, 56, 0.08);
+}
+
+.TextoVacioHabitaciones {
+    margin: 0;
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(36, 50, 56, 0.84);
+    text-align: center;
+}
+
+@media (max-width: 1100px) {
+    .CuadriculaHabitaciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .SeccionCatalogoHabitaciones {
+        padding: 28px 16px 78px;
+    }
+
+    .BloqueFiltrosHabitaciones {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .FormularioFiltrosHabitaciones {
+        grid-template-columns: 1fr;
+    }
+
+    .CuadriculaHabitaciones {
+        grid-template-columns: 1fr;
+    }
+
+    .ImagenTarjetaHabitacion {
+        height: 220px;
+    }
+
+    .EncabezadoTarjetaHabitacion {
+        flex-direction: column;
+    }
+}
