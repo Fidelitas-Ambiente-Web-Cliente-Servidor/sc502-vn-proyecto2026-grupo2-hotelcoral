@@ -1,0 +1,151 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(127, 214, 207, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.FormularioAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.FilaDoble {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.GrupoCampo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.GrupoCampo label {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--TextDark, #243238);
+}
+
+.GrupoCampo input,
+.GrupoCampo select,
+.GrupoCampo textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 15px;
+    border: 1px solid rgba(156, 126, 94, 0.24);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.97);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.98rem;
+    color: var(--TextDark, #243238);
+    transition: border-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease;
+}
+
+.GrupoCampo textarea {
+    min-height: 124px;
+    resize: vertical;
+}
+
+.GrupoCampo input::placeholder,
+.GrupoCampo textarea::placeholder {
+    color: rgba(36, 50, 56, 0.54);
+}
+
+.GrupoCampo input:focus,
+.GrupoCampo select:focus,
+.GrupoCampo textarea:focus {
+    outline: none;
+    border-color: var(--SeaTurquoise, #49B7B1);
+    box-shadow: 0 0 0 4px rgba(73, 183, 177, 0.14);
+    transform: translateY(-1px);
+}
+
+.FilaBotones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+    .FilaDoble {
+        grid-template-columns: 1fr;
+    }
+}
+.GridAmenidadesHabitacion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.8rem;
+    margin-top: 0.75rem;
+}
+
+.TarjetaAmenidadSeleccion {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid #e3d4c6;
+    border-radius: 14px;
+    background: #fffaf5;
+    cursor: pointer;
+    transition: 0.2s ease;
+    min-height: 78px;
+}
+.TarjetaAmenidadSeleccion:hover {
+    border-color: #c69c72;
+    box-shadow: 0 8px 20px rgba(100, 72, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+.CheckboxAmenidad {
+    margin-top: 0.15rem;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    accent-color: #8b5e3c;
+    cursor: pointer;
+}
+
+.ContenidoAmenidadSeleccion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.TituloAmenidadSeleccion {
+    font-weight: 700;
+    color: #3f2c20;
+}
+
+.DescripcionAmenidadSeleccion {
+    font-size: 0.9rem;
+    color: #6a5648;
+    line-height: 1.4;
+}
+
+.TextoAyudaAmenidades {
+    margin: 0 0 0.7rem;
+    color: #6a5648;
+    font-size: 0.95rem;
+}
+.EncabezadoAmenidadesInline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.AccionesAmenidadesInline {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.BotonAmenidadMini {
+    min-width: auto;
+    white-space: nowrap;
+}

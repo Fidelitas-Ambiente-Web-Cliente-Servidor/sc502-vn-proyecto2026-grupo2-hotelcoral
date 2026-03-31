@@ -1,0 +1,80 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(217, 195, 163, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.ContenedorTabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.ContenedorDetalleReserva {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.BloqueDetalleReserva {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 12px 24px rgba(36, 50, 56, 0.06);
+}
+
+.TituloBloqueDetalleReserva {
+    margin: 0 0 14px;
+    font-family: "Zain", sans-serif;
+    font-size: 1.9rem;
+    line-height: 0.95;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.ListaDatosDetalleReserva {
+    display: grid;
+    gap: 10px;
+}
+
+.ListaDatosDetalleReserva p {
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--TextDark, #243238);
+}
+
+.SubseccionDetalleReserva {
+    margin-top: 8px;
+}
+
+.SubtituloDetalleReserva {
+    margin: 0 0 10px;
+    font-family: "Zain", sans-serif;
+    font-size: 1.6rem;
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.ListaTarjetasDetalleReserva {
+    display: grid;
+    gap: 14px;
+}
+
+.TarjetaDetalleInterna {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(44, 110, 127, 0.08);
+    border-radius: 16px;
+    padding: 16px 16px;
+}
+
+.TarjetaDetalleInterna p {
+    margin: 0 0 6px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--TextDark, #243238);
+}
+
+.TarjetaDetalleInterna p:last-child {
+    margin-bottom: 0;
+}

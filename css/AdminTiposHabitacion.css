@@ -1,0 +1,52 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(217, 195, 163, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.ContenedorTabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.TablaTiposHabitacion img {
+    width: 72px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.FilaAccionesAdmin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.BloqueResumenAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.EtiquetaEstadoAdmin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.EtiquetaEstadoAdmin.Activo {
+    background: rgba(73, 183, 177, 0.15);
+    color: var(--OceanDeep, #2C6E7F);
+}
+
+.EtiquetaEstadoAdmin.Inactivo {
+    background: rgba(217, 123, 93, 0.14);
+    color: var(--CoralAccent, #D97B5D);
+}

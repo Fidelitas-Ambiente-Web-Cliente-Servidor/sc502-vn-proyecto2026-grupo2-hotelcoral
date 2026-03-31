@@ -1,0 +1,77 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(127, 214, 207, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.FormularioAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.FilaDoble {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.GrupoCampo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.GrupoCampo label {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--TextDark, #243238);
+}
+
+.GrupoCampo input,
+.GrupoCampo select,
+.GrupoCampo textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 15px;
+    border: 1px solid rgba(156, 126, 94, 0.24);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.97);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.98rem;
+    color: var(--TextDark, #243238);
+    transition: border-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease;
+}
+
+.GrupoCampo textarea {
+    min-height: 124px;
+    resize: vertical;
+}
+
+.GrupoCampo input::placeholder,
+.GrupoCampo textarea::placeholder {
+    color: rgba(36, 50, 56, 0.54);
+}
+
+.GrupoCampo input:focus,
+.GrupoCampo select:focus,
+.GrupoCampo textarea:focus {
+    outline: none;
+    border-color: var(--SeaTurquoise, #49B7B1);
+    box-shadow: 0 0 0 4px rgba(73, 183, 177, 0.14);
+    transform: translateY(-1px);
+}
+
+.FilaBotones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+    .FilaDoble {
+        grid-template-columns: 1fr;
+    }
+}

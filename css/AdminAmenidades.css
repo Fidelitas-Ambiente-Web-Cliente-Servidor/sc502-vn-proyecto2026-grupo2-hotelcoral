@@ -1,0 +1,39 @@
+.FormularioAdmin textarea,
+.FormularioAdmin input,
+.FormularioAdmin select {
+    width: 100%;
+}
+
+.ContenedorTabla .TablaUsuarios td,
+.ContenedorTabla .TablaUsuarios th {
+    vertical-align: middle;
+}
+
+.TarjetaAdmin .FilaBotones {
+    margin-top: 1rem;
+}
+
+.FilaBotonesAmenidadesInferior {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eadfd2;
+}
+
+@media (max-width: 900px) {
+    .GridAdmin {
+        grid-template-columns: 1fr !important;
+    }
+
+    .FilaBotonesAmenidadesInferior {
+        justify-content: stretch;
+    }
+
+    .FilaBotonesAmenidadesInferior .BotonPrincipal,
+    .FilaBotonesAmenidadesInferior .BotonSecundario {
+        width: 100%;
+        text-align: center;
+    }
+}

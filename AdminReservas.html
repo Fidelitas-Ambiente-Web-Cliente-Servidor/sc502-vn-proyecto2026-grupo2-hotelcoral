@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Administración de reservas</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/AdminReservas.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin">Administración de reservas</h1>
+                <p class="TextoAdmin">
+                    Consulta, filtra y gestiona las reservas realizadas por los usuarios.
+                </p>
+            </section>
+
+            <div id="MensajeAdminReservas" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin" style="grid-template-columns: 1fr;">
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta">Filtros</h2>
+                    <p class="DescripcionTarjeta">
+                        Busca por cliente, hotel, tipo o estado para localizar reservas rápidamente.
+                    </p>
+
+                    <div class="FormularioAdmin">
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputBuscarReserva">Buscar</label>
+                                <input type="text" id="InputBuscarReserva" placeholder="Cliente, hotel, tipo o habitación">
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="SelectFiltroHotelReserva">Hotel</label>
+                                <select id="SelectFiltroHotelReserva">
+                                    <option value="">Todos los hoteles</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="SelectFiltroEstadoReserva">Estado</label>
+                                <select id="SelectFiltroEstadoReserva">
+                                    <option value="">Todos los estados</option>
+                                    <option value="PENDIENTE">PENDIENTE</option>
+                                    <option value="CONFIRMADA">CONFIRMADA</option>
+                                    <option value="CANCELADA">CANCELADA</option>
+                                    <option value="FINALIZADA">FINALIZADA</option>
+                                </select>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label>&nbsp;</label>
+                                <a href="Admin.html" class="BotonSecundario">Volver al panel</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta">Listado de reservas</h2>
+                    <p class="DescripcionTarjeta">
+                        Revisa el resumen general y abre el detalle de cada reserva.
+                    </p>
+
+                    <div class="ContenedorTabla">
+                        <table class="TablaUsuarios">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Hotel</th>
+                                    <th>Habitación / Tipo</th>
+                                    <th>Fechas</th>
+                                    <th>Estado</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="CuerpoTablaReservas">
+                                <tr>
+                                    <td colspan="8">Cargando reservas...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="TarjetaAdmin" id="TarjetaDetalleReserva" style="display:none;">
+                    <div class="EncabezadoTarjetaAdmin" style="display:flex; justify-content:space-between; gap:16px; align-items:flex-start;">
+                        <div>
+                            <h2 class="TituloTarjeta">Detalle de reserva</h2>
+                            <p class="DescripcionTarjeta">
+                                Información completa de la reserva seleccionada.
+                            </p>
+                        </div>
+
+                        <button type="button" class="BotonSecundario" id="BotonCerrarDetalleReserva">
+                            Cerrar detalle
+                        </button>
+                    </div>
+
+                    <div id="ContenedorDetalleReserva" class="ContenedorListadoCuenta">
+                        <p class="TextoVacio">Selecciona una reserva para ver su detalle.</p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/AdminReservas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Administración de amenidades</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/AdminAmenidades.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin">Administración de amenidades</h1>
+                <p class="TextoAdmin">
+                    Crea, edita y administra las amenidades disponibles para las habitaciones físicas.
+                </p>
+            </section>
+
+            <div id="MensajeAmenidades" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin">
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta">Registrar o editar amenidad</h2>
+
+                    <form class="FormularioAdmin" id="FormularioAmenidad" novalidate>
+                        <input type="hidden" id="InputIdAmenidad">
+
+                        <div class="GrupoCampo">
+                            <label for="InputNombreAmenidad">Nombre</label>
+                            <input type="text" id="InputNombreAmenidad" placeholder="Ejemplo: WiFi">
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="TextAreaDescripcionAmenidad">Descripción</label>
+                            <textarea id="TextAreaDescripcionAmenidad" rows="4"
+                                placeholder="Ejemplo: Internet inalámbrico disponible en toda la habitación"></textarea>
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="SelectEstadoAmenidad">Estado</label>
+                            <select id="SelectEstadoAmenidad">
+                                <option value="ACTIVO">ACTIVO</option>
+                                <option value="INACTIVO">INACTIVO</option>
+                            </select>
+                        </div>
+
+                        <div class="FilaBotones">
+                            <button type="submit" class="BotonPrincipal" id="BotonGuardarAmenidad">
+                                Guardar amenidad
+                            </button>
+                            <button type="button" class="BotonSecundario" id="BotonLimpiarAmenidad">
+                                Limpiar formulario
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <article class="TarjetaAdmin">
+                    <div class="EncabezadoTarjetaAdmin">
+                        <div>
+                            <h2 class="TituloTarjeta">Amenidades registradas</h2>
+                            <p class="DescripcionTarjeta">
+                                Puedes buscarlas, editarlas o cambiar su estado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="FormularioAdmin">
+                        <div class="GrupoCampo">
+                            <label for="InputBuscarAmenidad">Buscar</label>
+                            <input type="text" id="InputBuscarAmenidad" placeholder="Nombre o descripción">
+                        </div>
+                    </div>
+
+                    <div class="ContenedorTabla">
+                        <table class="TablaUsuarios">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Estado</th>
+                                    <th>Usos</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="CuerpoTablaAmenidades">
+                                <tr>
+                                    <td colspan="5">Cargando amenidades...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="FilaBotones FilaBotonesAmenidadesInferior">
+
+                        <a href="Admin.html" class="BotonSecundario">
+                                Volver al panel
+                            </a>
+                        <a href="CrearHabitacionFisica.html" class="BotonPrincipal">
+                            Volver a crear habitación física
+                        </a>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/AdminAmenidades.js"></script>
+</body>
+
+</html>
