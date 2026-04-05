@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Coral | Servicios</title>
+
     <link rel="stylesheet" href="css/HeaderStyle.css">
     <link rel="stylesheet" href="css/FooterStyle.css">
     <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Servicios.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,15 +23,129 @@
 <body>
     <header id="FragmentoHeader"></header>
 
-    <main>
-        <h1>Contenido de servicios</h1>
+    <main class="ServiciosPagina">
+
+        <section class="HeroServicios">
+            <div class="ContenedorServicios ContenedorHeroServicios">
+                <div class="HeroServiciosTexto">
+                    <h1 class="TituloHeroServicios">
+                        Servicios para disfrutar Hotel Coral con más comodidad
+                    </h1>
+
+                    <p class="DescripcionHeroServicios">
+                        Explora servicios pensados para complementar tu estadía con una experiencia costera,
+                        relajante y acogedora.
+                    </p>
+
+                    <a href="#SeccionCatalogoServicios" class="BotonPrincipalServicios">
+                        Ver servicios
+                    </a>
+                </div>
+
+                <div class="HeroServiciosVisual">
+                    <img src="Recursos/Imagenes/HotelGeneral.png" alt="Servicios Hotel Coral">
+                </div>
+            </div>
+        </section>
+
+        <section class="CatalogoServicios" id="SeccionCatalogoServicios">
+            <div class="ContenedorServicios">
+                <div class="EncabezadoCatalogoServicios">
+                    <div class="BloqueTituloCatalogo">
+                        <h2 class="TituloSeccionServicios">Catálogo de servicios</h2>
+                        <p class="DescripcionSeccionServicios">
+                            Explora los servicios disponibles en nuestros hoteles y solicita el que mejor complemente tu estadía.
+                        </p>
+                    </div>
+
+                    <div class="ControlesCatalogoServicios">
+                        <label for="FiltroHotelServicios" class="LabelFiltroServicios">Hotel</label>
+                        <select id="FiltroHotelServicios" class="SelectHotelServicios">
+                            <option value="">Todos los hoteles</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="BarraResumenServicios">
+                    <p class="TextoResumenServicios">
+                        <span id="CantidadServicios">0</span> servicios disponibles
+                    </p>
+                </div>
+
+                <div id="EstadoCargaServicios" class="EstadoServicios">
+                    Cargando servicios...
+                </div>
+
+                <div id="EstadoVacioServicios" class="EstadoServicios EstadoServiciosOculto">
+                    No hay servicios disponibles para este hotel.
+                </div>
+
+                <div id="GridServicios" class="GridServicios"></div>
+            </div>
+        </section>
+
+        <section class="SeccionServicioDestacado">
+            <div class="ContenedorServicios">
+                <div class="TarjetaServicioDestacado">
+                    <div class="ContenidoServicioDestacado">
+                        <span class="EtiquetaServicioDestacado">Servicio destacado</span>
+
+                        <h2 class="TituloServicioDestacado" id="TituloServicioDestacado">
+                            Spa Coral
+                        </h2>
+
+                        <p class="TextoServicioDestacado" id="TextoServicioDestacado">
+                            Regálate un momento de descanso absoluto en un espacio creado para el bienestar.
+                        </p>
+
+                        <p class="PrecioServicioDestacado" id="PrecioServicioDestacado">
+                            Precio desde ₡25 000
+                        </p>
+
+                        <button class="BotonServicioDestacado" type="button" id="BotonServicioDestacado">
+                            Solicitar servicio
+                        </button>
+                    </div>
+
+                    <div class="ImagenServicioDestacadoContenedor">
+                        <img
+                            class="ImagenServicioDestacado"
+                            id="ImagenServicioDestacado"
+                            src="Recursos/Imagenes/Spa.jpg"
+                            alt="Spa Coral destacado">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <template id="PlantillaTarjetaServicio">
+        <article class="TarjetaServicio">
+            <img class="ImagenServicio" src="" alt="Servicio">
+
+            <div class="ContenidoTarjetaServicio">
+                <div class="EncabezadoTarjetaServicio">
+                    <h3 class="NombreServicio"></h3>
+                    <span class="PrecioServicio"></span>
+                </div>
+
+                <p class="HotelServicio"></p>
+
+                <p class="DescripcionServicio"></p>
+
+                <div class="AccionesServicio">
+                    <button class="BotonServicio" type="button">Solicitar servicio</button>
+                </div>
+            </div>
+        </article>
+    </template>
 
     <footer id="FragmentoFooter"></footer>
 
-
     <script src="js/CargarFragmento.js"></script>
     <script src="js/Header.js"></script>
+    <script src="js/Publico/Servicios.js"></script>
 </body>
 
 </html>
