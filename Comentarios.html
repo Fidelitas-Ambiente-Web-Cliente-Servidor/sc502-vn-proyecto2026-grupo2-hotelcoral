@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="css/HeaderStyle.css">
     <link rel="stylesheet" href="css/FooterStyle.css">
     <link rel="stylesheet" href="css/Global.css">
-        <link rel="stylesheet" href="css/Comentarios.css">
+    <link rel="stylesheet" href="css/Comentarios.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Zain&family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -35,9 +36,21 @@
             Comparte tu experiencia en Hotel Coral 🐚
         </p>
 
-        <form class="FormularioComentarios">
+        <form id="FormularioComentario" class="FormularioComentarios">
+
+            <p id="UsuarioActivo"></p>
 
             <div class="Campo">
+                <label>Nombre</label>
+                <input type="text" id="NombreUsuario" disabled>
+            </div>
+
+            <div class="Campo">
+                <label>Correo</label>
+                <input type="text" id="CorreoUsuario" disabled>
+            </div>
+
+            <!--<div class="Campo">
                 <label>Nombre</label>
                 <input type="text" placeholder="Escribe tu nombre">
             </div>
@@ -45,14 +58,14 @@
             <div class="Campo">
                 <label>Correo</label>
                 <input type="email" placeholder="ejemplo@email.com">
-            </div>
+            </div> -->
 
             <div class="Campo">
                 <label>Ubicación visitada</label>
-                <select>
-                    <option>Puntarenas</option>
-                    <option>Limón</option>
-                    <option>Guanacaste</option>
+                <select id="UbicacionVisitada">
+                    <option value="1">Puntarenas</option>
+                    <option value="2">Limón</option>
+                    <option value="3">Guanacaste</option>
                 </select>
             </div>
 
@@ -67,19 +80,19 @@
 
                         <div class="Estrellas">
 
-                            <input type="radio" name="rating" id="star5">
+                            <input type="radio" name="rating" value="5" id="star5">
                             <label for="star5">★</label>
 
-                            <input type="radio" name="rating" id="star4">
+                            <input type="radio" name="rating" value="4" id="star4">
                             <label for="star4">★</label>
 
-                            <input type="radio" name="rating" id="star3">
+                            <input type="radio" name="rating" value="3" id="star3">
                             <label for="star3">★</label>
 
-                            <input type="radio" name="rating" id="star2">
+                            <input type="radio" name="rating" value="2" id="star2">
                             <label for="star2">★</label>
 
-                            <input type="radio" name="rating" id="star1">
+                            <input type="radio" name="rating" value="1" id="star1">
                             <label for="star1">★</label>
 
                         </div>
@@ -87,7 +100,7 @@
 
                 </div>
 
-                <textarea rows="4" placeholder="Cuéntanos tu experiencia..."></textarea>
+                <textarea id="TextoComentario" rows="4" placeholder="Cuéntanos tu experiencia..."></textarea>
 
             </div>
 
@@ -118,78 +131,7 @@
 
         <h2>Comentarios recientes</h2>
 
-        <!-- Stacy -->
-        <div class="TarjetaComentario">
-            <div class="ComentarioHeaderTarjeta">
-                <div class="UsuarioInfo">
-                    <div class="Avatar">S</div>
-                    <div>
-                        <h3>Stacy Ramírez</h3>
-                        <span class="Lugar">Puntarenas</span>
-                    </div>
-                </div>
-                <div class="EstrellasComentario">
-                    ★★★★★
-                </div>
-            </div>
-            <p> El hotel fue increíble, la vista al mar y el servicio fueron excelentes.
-                Definitivamente volvería. </p>
-
-            <!-- RESPUESTA DEL HOTEL -->
-
-            <div class="RespuestaHotel">
-                <div class="AdminInfo">
-                    <div class="AvatarAdmin">H</div>
-                    <strong>Hotel Coral</strong>
-                </div>
-                <p>Muchas gracias por tu visita Stacy. Nos alegra saber que disfrutaste la
-                    vista al mar y nuestro servicio. ¡Esperamos recibirte nuevamente pronto!</p>
-            </div>
-
-        </div>
-
-        <!-- Dyban -->
-        <div class="TarjetaComentario">
-            <div class="ComentarioHeaderTarjeta">
-                <div class="UsuarioInfo">
-                    <div class="Avatar">D</div>
-                    <div>
-                        <h3>Dyban León</h3>
-                        <span class="Lugar">Guanacaste</span>
-                    </div>
-                </div>
-                <div class="EstrellasComentario">
-                    ★★★★☆
-                </div>
-            </div>
-            <p>Me encantó la vista al mar en Guanacaste. Muy buena atención del personal.</p>
-
-            <div class="RespuestaHotel">
-                <div class="AdminInfo">
-                    <div class="AvatarAdmin">H</div>
-                    <strong>Hotel Coral</strong>
-                </div>
-                <p>Gracias por compartir tu experiencia Dyban. Nos alegra saber que disfrutaste
-                    tu estancia en Guanacaste. ¡Te esperamos nuevamente!</p>
-            </div>
-        </div>
-
-        <!-- Alessandra -->
-        <div class="TarjetaComentario">
-            <div class="ComentarioHeaderTarjeta">
-                <div class="UsuarioInfo">
-                    <div class="Avatar">A</div>
-                    <div>
-                        <h3>Alessandra Meza</h3>
-                        <span class="Lugar">Limon</span>
-                    </div>
-                </div>
-                <div class="EstrellasComentario">
-                    ★★★☆☆
-                </div>
-            </div>
-            <p>El hotel en Limón es hermoso, muy cerca de la playa y el personal es muy amable.</p>
-        </div>
+        <div id="ListaComentarios"></div>
 
         <p class="TextoFinalComentarios">
             Nuestros huéspedes siguen compartiendo sus experiencias en Hotel Coral. ¡Déjanos saber la tuya!
@@ -206,6 +148,9 @@
 
     <script src="js/CargarFragmento.js"></script>
     <script src="js/Header.js"></script>
+    <script src="js/Publico/Comentarios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 

@@ -345,3 +345,9 @@ body {
     border: 1px solid var(--OceanDeep);
 
 }
+
+
+.EstadoSPAM {
+    background-color: #ff4d4d;
+    color: white;
+}
