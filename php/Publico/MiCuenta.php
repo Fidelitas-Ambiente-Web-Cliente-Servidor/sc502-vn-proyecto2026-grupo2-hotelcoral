@@ -44,9 +44,6 @@ try {
     $Db = new Db();
     $Conexion = $Db->Conectar();
 
-    /*
-     * 1) Obtener usuario actual
-     */
     $ConsultaUsuario = $Conexion->prepare("
         SELECT
             ID_USUARIO,
@@ -79,10 +76,6 @@ try {
         ResponderJson(false, "El usuario autenticado no existe.", [], 404);
     }
 
-    /*
-     * 2) Obtener reservas del usuario actual
-     *    Se agrupa por reserva para evitar duplicados si hay varias habitaciones ligadas.
-     */
     $ConsultaReservas = $Conexion->prepare("
         SELECT
             R.ID_RESERVA,
@@ -134,10 +127,43 @@ try {
 
     $ConsultaReservas->close();
 
-    /*
-     * 3) Obtener comentarios del usuario actual
-     *    El comentario está ligado a una reserva y debe filtrarse por ID_USUARIO de la sesión.
-     */
+    $ConsultaServicios = $Conexion->prepare("
+        SELECT
+            RS.ID_RESERVA_SERVICIO,
+            RS.ID_RESERVA,
+            H.NOMBRE_HOTEL AS HOTEL,
+            S.NOMBRE_SERVICIO,
+            RS.FECHA_SERVICIO,
+            RS.CANTIDAD,
+            RS.PRECIO_UNITARIO,
+            RS.SUBTOTAL
+        FROM COR_RESERVA_SERVICIO_TB RS
+        INNER JOIN COR_RESERVAS_TB R
+            ON R.ID_RESERVA = RS.ID_RESERVA
+        INNER JOIN COR_SERVICIOS_TB S
+            ON S.ID_SERVICIO = RS.ID_SERVICIO
+        INNER JOIN COR_HOTELES_TB H
+            ON H.ID_HOTEL = R.ID_HOTEL
+        WHERE R.ID_USUARIO = ?
+        ORDER BY RS.FECHA_SERVICIO DESC, RS.ID_RESERVA_SERVICIO DESC
+    ");
+
+    if (!$ConsultaServicios) {
+        throw new Exception("No fue posible preparar la consulta de servicios.");
+    }
+
+    $ConsultaServicios->bind_param("i", $IdUsuario);
+    $ConsultaServicios->execute();
+
+    $ResultadoServicios = $ConsultaServicios->get_result();
+    $Servicios = [];
+
+    while ($FilaServicio = $ResultadoServicios->fetch_assoc()) {
+        $Servicios[] = $FilaServicio;
+    }
+
+    $ConsultaServicios->close();
+
     $ConsultaComentarios = $Conexion->prepare("
         SELECT
             C.ID_COMENTARIO,
@@ -148,9 +174,11 @@ try {
             C.ESTADO_COMENTARIO,
             C.RESPUESTA_ADMIN
         FROM COR_COMENTARIOS_TB C
+        INNER JOIN COR_RESERVAS_TB R
+            ON R.ID_RESERVA = C.ID_RESERVA
         INNER JOIN COR_HOTELES_TB H
-            ON H.ID_HOTEL = C.ID_HOTEL
-        WHERE C.ID_USUARIO = ?
+            ON H.ID_HOTEL = R.ID_HOTEL
+        WHERE R.ID_USUARIO = ?
         ORDER BY C.FECHA_COMENTARIO DESC, C.ID_COMENTARIO DESC
     ");
 
@@ -177,6 +205,7 @@ try {
         [
             "Usuario" => $Usuario,
             "Reservas" => $Reservas,
+            "Servicios" => $Servicios,
             "Comentarios" => $Comentarios
         ]
     );

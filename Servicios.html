@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/HeaderStyle.css">
     <link rel="stylesheet" href="css/FooterStyle.css">
     <link rel="stylesheet" href="css/Global.css">
-    <link rel="stylesheet" href="css/Servicios.css">
+    <link rel="stylesheet" href="css/Servicios.css?v=3">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,15 +91,15 @@
                         <span class="EtiquetaServicioDestacado">Servicio destacado</span>
 
                         <h2 class="TituloServicioDestacado" id="TituloServicioDestacado">
-                            Spa Coral
+                            Servicio destacado
                         </h2>
 
                         <p class="TextoServicioDestacado" id="TextoServicioDestacado">
-                            Regálate un momento de descanso absoluto en un espacio creado para el bienestar.
+                            Descubre una experiencia pensada para complementar tu estadía.
                         </p>
 
                         <p class="PrecioServicioDestacado" id="PrecioServicioDestacado">
-                            Precio desde ₡25 000
+                            Precio no disponible
                         </p>
 
                         <button class="BotonServicioDestacado" type="button" id="BotonServicioDestacado">
@@ -111,10 +111,74 @@
                         <img
                             class="ImagenServicioDestacado"
                             id="ImagenServicioDestacado"
-                            src="Recursos/Imagenes/Spa.jpg"
-                            alt="Spa Coral destacado">
+                            src="Recursos/Imagenes/HotelGeneral.png"
+                            alt="Servicio destacado">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="ModalSolicitudServicio" class="ModalServicio ModalOculto">
+            <div class="OverlayModalServicio" id="OverlayModalServicio"></div>
+
+            <div class="ContenidoModalServicio">
+                <button type="button" class="BotonCerrarModalServicio" id="BotonCerrarModalServicio">×</button>
+
+                <div class="EncabezadoModalServicio">
+                    <h3 class="TituloModalServicio">Solicitar servicio</h3>
+                    <p class="TextoModalServicio">
+                        Asocia este servicio a una de tus reservas activas o confirmadas.
+                    </p>
+                </div>
+
+                <div id="MensajeModalServicio" class="MensajeModalServicio MensajeModalServicioOculto"></div>
+
+                <form id="FormularioSolicitudServicio" class="FormularioSolicitudServicio">
+                    <input type="hidden" id="InputIdServicio" name="IdServicio">
+
+                    <div class="GrupoCampoModalServicio">
+                        <label for="InputNombreServicioModal">Servicio</label>
+                        <input type="text" id="InputNombreServicioModal" readonly>
+                    </div>
+
+                    <div class="GrupoCampoModalServicio">
+                        <label for="InputHotelServicioModal">Hotel</label>
+                        <input type="text" id="InputHotelServicioModal" readonly>
+                    </div>
+
+                    <div class="GrupoCampoModalServicio">
+                        <label for="SelectReservaServicio">Reserva asociada</label>
+                        <select id="SelectReservaServicio" name="IdReserva" required>
+                            <option value="">Selecciona una reserva</option>
+                        </select>
+                    </div>
+
+                    <div class="GridCamposModalServicio">
+                        <div class="GrupoCampoModalServicio">
+                            <label for="InputCantidadServicio">Cantidad</label>
+                            <input type="number" id="InputCantidadServicio" name="Cantidad" min="1" value="1" required>
+                        </div>
+
+                        <div class="GrupoCampoModalServicio">
+                            <label for="InputFechaServicio">Fecha del servicio</label>
+                            <input type="date" id="InputFechaServicio" name="FechaServicio" required>
+                        </div>
+                    </div>
+
+                    <div class="ResumenModalServicio" id="ResumenModalServicio">
+                        Total estimado: ₡0.00
+                    </div>
+
+                    <div class="AccionesModalServicio">
+                        <button type="button" class="BotonSecundarioModalServicio" id="BotonCancelarModalServicio">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" class="BotonPrincipalModalServicio" id="BotonConfirmarServicio">
+                            Confirmar solicitud
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
 
@@ -145,7 +209,7 @@
 
     <script src="js/CargarFragmento.js"></script>
     <script src="js/Header.js"></script>
-    <script src="js/Publico/Servicios.js"></script>
+    <script src="js/Publico/Servicios.js?v=20"></script>
 </body>
 
 </html>

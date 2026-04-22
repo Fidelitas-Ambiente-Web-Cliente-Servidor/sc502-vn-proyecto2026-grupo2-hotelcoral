@@ -1,35 +1,56 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
-require_once __DIR__ . '/../Base/Db.php';
+
+header("Content-Type: application/json; charset=utf-8");
+
+require_once __DIR__ . "/../Base/Db.php";
+
+function ResponderJson(bool $Exito, string $Mensaje, array $Datos = [], int $Codigo = 200): void
+{
+    http_response_code($Codigo);
+
+    echo json_encode([
+        "success" => $Exito,
+        "message" => $Mensaje,
+        "data" => $Datos
+    ], JSON_UNESCAPED_UNICODE);
+
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] !== "GET") {
+    ResponderJson(false, "Método no permitido.", [], 405);
+}
 
 try {
-    $BaseDatos = new Db();
-    $Conexion = $BaseDatos->Conectar();
+    $Db = new Db();
+    $Conexion = $Db->Conectar();
 
-    $ConsultaHoteles = "
+    $ConsultaHoteles = $Conexion->prepare("
         SELECT
             ID_HOTEL,
             NOMBRE_HOTEL
         FROM COR_HOTELES_TB
+        WHERE ESTADO_HOTEL = 'ACTIVO'
         ORDER BY NOMBRE_HOTEL ASC
-    ";
+    ");
 
-    $ResultadoHoteles = $Conexion->query($ConsultaHoteles);
-
-    if (!$ResultadoHoteles) {
-        throw new Exception("No fue posible obtener los hoteles.");
+    if (!$ConsultaHoteles) {
+        throw new Exception("No fue posible preparar la consulta de hoteles.");
     }
 
-    $ListaHoteles = [];
+    $ConsultaHoteles->execute();
+    $ResultadoHoteles = $ConsultaHoteles->get_result();
+    $Hoteles = [];
 
     while ($FilaHotel = $ResultadoHoteles->fetch_assoc()) {
-        $ListaHoteles[] = [
-            'IdHotel' => (string) $FilaHotel['ID_HOTEL'],
-            'NombreHotel' => $FilaHotel['NOMBRE_HOTEL']
-        ];
+        $Hoteles[] = $FilaHotel;
     }
 
-    $ConsultaServicios = "
+    $ConsultaHoteles->close();
+
+    $IdHotel = isset($_GET["IdHotel"]) ? (int) $_GET["IdHotel"] : 0;
+
+    $SqlServicios = "
         SELECT
             S.ID_SERVICIO,
             S.ID_HOTEL,
@@ -42,75 +63,43 @@ try {
         INNER JOIN COR_HOTELES_TB H
             ON H.ID_HOTEL = S.ID_HOTEL
         WHERE S.ESTADO_SERVICIO = 'ACTIVO'
-        ORDER BY S.NOMBRE_SERVICIO ASC, H.NOMBRE_HOTEL ASC
     ";
 
-    $ResultadoServicios = $Conexion->query($ConsultaServicios);
-
-    if (!$ResultadoServicios) {
-        throw new Exception("No fue posible obtener los servicios.");
+    if ($IdHotel > 0) {
+        $SqlServicios .= " AND S.ID_HOTEL = ? ";
     }
 
-    $ServiciosAgrupados = [];
+    $SqlServicios .= " ORDER BY H.NOMBRE_HOTEL ASC, S.NOMBRE_SERVICIO ASC ";
+
+    $ConsultaServicios = $Conexion->prepare($SqlServicios);
+
+    if (!$ConsultaServicios) {
+        throw new Exception("No fue posible preparar la consulta de servicios.");
+    }
+
+    if ($IdHotel > 0) {
+        $ConsultaServicios->bind_param("i", $IdHotel);
+    }
+
+    $ConsultaServicios->execute();
+    $ResultadoServicios = $ConsultaServicios->get_result();
+    $Servicios = [];
 
     while ($FilaServicio = $ResultadoServicios->fetch_assoc()) {
-        $ClaveServicio = trim(mb_strtolower($FilaServicio['NOMBRE_SERVICIO']));
-
-        if (!isset($ServiciosAgrupados[$ClaveServicio])) {
-            $ServiciosAgrupados[$ClaveServicio] = [
-                'IdServicio' => (int) $FilaServicio['ID_SERVICIO'],
-                'NombreServicio' => $FilaServicio['NOMBRE_SERVICIO'],
-                'Descripcion' => $FilaServicio['DESCRIPCION'],
-                'Precio' => '₡' . number_format((float) $FilaServicio['PRECIO'], 2, '.', ','),
-                'Imagen' => ObtenerImagenServicio($FilaServicio['NOMBRE_SERVICIO']),
-                'HotelesDisponibles' => [],
-                'NombresHoteles' => []
-            ];
-        }
-
-        $IdHotel = (string) $FilaServicio['ID_HOTEL'];
-        $NombreHotel = $FilaServicio['NOMBRE_HOTEL'];
-
-        if (!in_array($IdHotel, $ServiciosAgrupados[$ClaveServicio]['HotelesDisponibles'], true)) {
-            $ServiciosAgrupados[$ClaveServicio]['HotelesDisponibles'][] = $IdHotel;
-        }
-
-        if (!in_array($NombreHotel, $ServiciosAgrupados[$ClaveServicio]['NombresHoteles'], true)) {
-            $ServiciosAgrupados[$ClaveServicio]['NombresHoteles'][] = $NombreHotel;
-        }
+        $Servicios[] = $FilaServicio;
     }
 
-    echo json_encode([
-        'success' => true,
-        'message' => 'Servicios obtenidos correctamente.',
-        'data' => [
-            'Hoteles' => $ListaHoteles,
-            'Servicios' => array_values($ServiciosAgrupados)
-        ]
-    ], JSON_UNESCAPED_UNICODE);
-
+    $ConsultaServicios->close();
     $Conexion->close();
 
+    ResponderJson(
+        true,
+        "Servicios cargados correctamente.",
+        [
+            "Hoteles" => $Hoteles,
+            "Servicios" => $Servicios
+        ]
+    );
 } catch (Throwable $Error) {
-    http_response_code(500);
-
-    echo json_encode([
-        'success' => false,
-        'message' => 'Ocurrió un error al obtener los servicios.',
-        'error' => $Error->getMessage()
-    ], JSON_UNESCAPED_UNICODE);
-}
-
-function ObtenerImagenServicio(string $NombreServicio): string
-{
-    $MapaImagenes = [
-        'Spa Coral' => 'Recursos/Imagenes/Spa.jpg',
-        'Desayuno Típico Costarricense' => 'Recursos/Imagenes/Desayuno.jpg',
-        'Tour Costero' => 'Recursos/Imagenes/Tour.jpg',
-        'Snorkel Costero' => 'Recursos/Imagenes/Snorkel.jpg',
-        'Cena típica frente al mar' => 'Recursos/Imagenes/Cena.jpg',
-        'Café y repostería artesanal' => 'Recursos/Imagenes/Cafe.jpg'
-    ];
-
-    return $MapaImagenes[$NombreServicio] ?? 'Recursos/Imagenes/HotelGeneral.png';
+    ResponderJson(false, $Error->getMessage(), [], 500);
 }

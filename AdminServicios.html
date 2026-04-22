@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Coral | Administración de servicios</title>
+
+    <link rel="stylesheet" href="css/HeaderStyle.css">
+    <link rel="stylesheet" href="css/FooterStyle.css">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Admin.css">
+    <link rel="stylesheet" href="css/AdminUsuarios.css">
+    <link rel="stylesheet" href="css/AdminServicios.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800&family=Chiron+GoRound+TC:wght@400;500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="FragmentoHeader"></header>
+
+    <main class="SeccionAdmin">
+        <div class="ContenedorAdmin">
+            <section class="EncabezadoAdmin">
+                <h1 class="TituloAdmin">Administración de servicios</h1>
+                <p class="TextoAdmin">
+                    Gestiona los servicios ofrecidos por los hoteles del sistema.
+                </p>
+            </section>
+
+            <div id="MensajeAdminServicios" class="MensajeFormulario" aria-live="polite"></div>
+
+            <section class="GridAdmin">
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta" id="TituloFormularioServicio">Nuevo servicio</h2>
+                    <p class="DescripcionTarjeta">
+                        Registra o actualiza los servicios disponibles para cada hotel.
+                    </p>
+
+                    <form id="FormularioServicio" class="FormularioAdmin">
+                        <input type="hidden" id="InputIdServicio">
+
+                        <div class="GrupoCampo">
+                            <label for="SelectHotelServicio">Hotel</label>
+                            <select id="SelectHotelServicio" required>
+                                <option value="">Selecciona un hotel</option>
+                            </select>
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="InputNombreServicio">Nombre del servicio</label>
+                            <input type="text" id="InputNombreServicio" maxlength="100" placeholder="Ej. Spa Coral" required>
+                        </div>
+
+                        <div class="GrupoCampo">
+                            <label for="TextAreaDescripcionServicio">Descripción</label>
+                            <textarea id="TextAreaDescripcionServicio" rows="5" placeholder="Describe el servicio"></textarea>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputPrecioServicio">Precio</label>
+                                <input type="number" id="InputPrecioServicio" min="0" step="0.01" placeholder="0.00" required>
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="SelectEstadoServicio">Estado</label>
+                                <select id="SelectEstadoServicio" required>
+                                    <option value="ACTIVO">ACTIVO</option>
+                                    <option value="INACTIVO">INACTIVO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="FilaAcciones">
+                            <button type="submit" class="BotonPrimario" id="BotonGuardarServicio">
+                                Guardar servicio
+                            </button>
+
+                            <button type="button" class="BotonSecundario" id="BotonCancelarEdicionServicio">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <article class="TarjetaAdmin">
+                    <h2 class="TituloTarjeta">Servicios registrados</h2>
+                    <p class="DescripcionTarjeta">
+                        Consulta, filtra y administra los servicios cargados en el sistema.
+                    </p>
+
+                    <div class="FormularioAdmin" style="margin-bottom: 20px;">
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="InputBuscarServicioAdmin">Buscar</label>
+                                <input type="text" id="InputBuscarServicioAdmin" placeholder="Nombre, hotel o descripción">
+                            </div>
+
+                            <div class="GrupoCampo">
+                                <label for="SelectFiltroHotelServicioAdmin">Hotel</label>
+                                <select id="SelectFiltroHotelServicioAdmin">
+                                    <option value="">Todos los hoteles</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="FilaDoble">
+                            <div class="GrupoCampo">
+                                <label for="SelectFiltroEstadoServicioAdmin">Estado</label>
+                                <select id="SelectFiltroEstadoServicioAdmin">
+                                    <option value="">Todos</option>
+                                    <option value="ACTIVO">ACTIVO</option>
+                                    <option value="INACTIVO">INACTIVO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="TablaResponsive">
+                        <table class="TablaAdmin">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Servicio</th>
+                                    <th>Hotel</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="CuerpoTablaServicios">
+                                <tr>
+                                    <td colspan="7">Cargando servicios.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer id="FragmentoFooter"></footer>
+
+    <script src="js/CargarFragmento.js"></script>
+    <script src="js/Header.js"></script>
+    <script src="js/Admin/AdminServicios.js"></script>
+</body>
+
+</html>

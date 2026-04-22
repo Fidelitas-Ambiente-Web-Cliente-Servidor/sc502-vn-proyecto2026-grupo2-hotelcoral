@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const TextoEstadoUsuario = document.getElementById("TextoEstadoUsuario");
 
     const ContenedorReservas = document.getElementById("ContenedorReservas");
+    const ContenedorServicios = document.getElementById("ContenedorServicios");
     const ContenedorComentarios = document.getElementById("ContenedorComentarios");
 
     InicializarModulo();
@@ -52,6 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 MostrarTextoVacio(
+                    ContenedorServicios,
+                    "No fue posible cargar tus servicios."
+                );
+
+                MostrarTextoVacio(
                     ContenedorComentarios,
                     "No fue posible cargar tus comentarios."
                 );
@@ -61,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const Usuario = Resultado.data?.Usuario ?? null;
             const Reservas = Resultado.data?.Reservas ?? [];
+            const Servicios = Resultado.data?.Servicios ?? [];
             const Comentarios = Resultado.data?.Comentarios ?? [];
 
             if (!Usuario) {
@@ -79,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             RenderizarUsuario(Usuario);
             RenderizarReservas(Reservas);
+            RenderizarServicios(Servicios);
             RenderizarComentarios(Comentarios);
         } catch (Error) {
             console.error("Error al cargar MiCuenta:", Error);
@@ -95,6 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             MostrarTextoVacio(
+                ContenedorServicios,
+                "No fue posible cargar tus servicios."
+            );
+
+            MostrarTextoVacio(
                 ContenedorComentarios,
                 "No fue posible cargar tus comentarios."
             );
@@ -107,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const Correo = Usuario.CORREO ?? "No disponible";
         const Telefono = Usuario.TELEFONO ?? "No registrado";
         const Estado = Usuario.ESTADO_USUARIO ?? "No disponible";
-        const FechaRegistro = Usuario.FECHA_REGISTRO ?? null;
+        const FechaRegistro = Usuario.FECHA_REGISTRO ?? "";
 
         if (TextoNombreCompleto) {
             TextoNombreCompleto.textContent = `${Nombre} ${Apellido}`.trim() || "No disponible";
@@ -118,13 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (TextoTelefonoUsuario) {
-            TextoTelefonoUsuario.textContent = Telefono !== "" ? Telefono : "No registrado";
+            TextoTelefonoUsuario.textContent = Telefono || "No registrado";
         }
 
         if (TextoFechaRegistro) {
-            TextoFechaRegistro.textContent = FechaRegistro
-                ? FormatearFechaHora(FechaRegistro)
-                : "No disponible";
+            TextoFechaRegistro.textContent = FormatearFechaHora(FechaRegistro);
         }
 
         if (TextoEstadoUsuario) {
@@ -168,6 +179,44 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             ContenedorReservas.appendChild(TarjetaReserva);
+        });
+    }
+
+    function RenderizarServicios(Servicios) {
+        if (!ContenedorServicios) {
+            return;
+        }
+
+        ContenedorServicios.innerHTML = "";
+
+        if (!Array.isArray(Servicios) || Servicios.length === 0) {
+            MostrarTextoVacio(
+                ContenedorServicios,
+                "Todavía no tienes servicios registrados."
+            );
+            return;
+        }
+
+        Servicios.forEach((Servicio) => {
+            const TarjetaServicio = document.createElement("article");
+            TarjetaServicio.className = "TarjetaListadoCuenta";
+
+            TarjetaServicio.innerHTML = `
+                <div class="EncabezadoListadoCuenta">
+                    <h3 class="TituloListadoCuenta">${EscapeHtml(Servicio.NOMBRE_SERVICIO ?? "Servicio no disponible")}</h3>
+                    <span class="EtiquetaEstadoCuenta">Reserva #${EscapeHtml(Servicio.ID_RESERVA ?? "—")}</span>
+                </div>
+
+                <div class="CuerpoListadoCuenta">
+                    <p><strong>Hotel:</strong> ${EscapeHtml(Servicio.HOTEL ?? "No disponible")}</p>
+                    <p><strong>Fecha del servicio:</strong> ${EscapeHtml(FormatearFechaHora(Servicio.FECHA_SERVICIO))}</p>
+                    <p><strong>Cantidad:</strong> ${EscapeHtml(Servicio.CANTIDAD ?? "No disponible")}</p>
+                    <p><strong>Precio unitario:</strong> ${EscapeHtml(FormatearMoneda(Servicio.PRECIO_UNITARIO))}</p>
+                    <p><strong>Subtotal:</strong> ${EscapeHtml(FormatearMoneda(Servicio.SUBTOTAL))}</p>
+                </div>
+            `;
+
+            ContenedorServicios.appendChild(TarjetaServicio);
         });
     }
 
@@ -234,21 +283,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const Resultado = await Respuesta.json();
 
             if (!Respuesta.ok || !Resultado.success) {
-                MostrarMensaje(
-                    MensajeMiCuenta,
-                    Resultado.message || "No fue posible cerrar la sesión.",
-                    "error"
-                );
-                return;
+                throw new Error(Resultado.message || "No fue posible cerrar sesión.");
             }
 
-            window.location.href = Resultado.data?.Redireccion || "AccesoCuenta.html";
+            window.location.href = "AccesoCuenta.html";
         } catch (Error) {
             console.error("Error al cerrar sesión:", Error);
-
             MostrarMensaje(
                 MensajeMiCuenta,
-                "Ocurrió un error inesperado al cerrar la sesión.",
+                Error.message || "No fue posible cerrar la sesión.",
                 "error"
             );
         } finally {
@@ -274,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         Contenedor.textContent = Texto;
         Contenedor.style.display = "block";
-        Contenedor.dataset.tipo = Tipo;
 
         if (Tipo === "error") {
             Contenedor.style.color = "#8B1E1E";
@@ -302,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         Contenedor.textContent = "";
         Contenedor.style.display = "none";
-        Contenedor.removeAttribute("data-tipo");
         Contenedor.style.color = "";
         Contenedor.style.backgroundColor = "";
         Contenedor.style.border = "";
@@ -311,39 +352,39 @@ document.addEventListener("DOMContentLoaded", () => {
         Contenedor.style.marginBottom = "";
     }
 
-    function FormatearFecha(ValorFecha) {
-        if (!ValorFecha) {
+    function FormatearFecha(FechaTexto) {
+        if (!FechaTexto) {
             return "No disponible";
         }
 
-        const Fecha = new Date(`${ValorFecha}T00:00:00`);
+        const Fecha = new Date(`${FechaTexto}T00:00:00`);
 
         if (Number.isNaN(Fecha.getTime())) {
-            return ValorFecha;
+            return FechaTexto;
         }
 
         return Fecha.toLocaleDateString("es-CR", {
             year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
+            month: "long",
+            day: "numeric"
         });
     }
 
-    function FormatearFechaHora(ValorFechaHora) {
-        if (!ValorFechaHora) {
+    function FormatearFechaHora(FechaTexto) {
+        if (!FechaTexto) {
             return "No disponible";
         }
 
-        const Fecha = new Date(ValorFechaHora.replace(" ", "T"));
+        const Fecha = new Date(String(FechaTexto).replace(" ", "T"));
 
         if (Number.isNaN(Fecha.getTime())) {
-            return ValorFechaHora;
+            return FechaTexto;
         }
 
         return Fecha.toLocaleString("es-CR", {
             year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
+            month: "long",
+            day: "numeric",
             hour: "2-digit",
             minute: "2-digit"
         });

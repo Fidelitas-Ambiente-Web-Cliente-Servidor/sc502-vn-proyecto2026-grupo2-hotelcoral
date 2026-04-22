@@ -1,0 +1,290 @@
+body {
+    background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.92), rgba(217, 195, 163, 0.14)),
+        var(--SoftCream, #F5EFE6);
+}
+
+.TablaResponsive,
+.ContenedorTabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.GridAdmin {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.TarjetaAdmin {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 22px;
+    padding: 18px 18px;
+    box-shadow: 0 12px 24px rgba(36, 50, 56, 0.06);
+}
+
+.TituloTarjeta {
+    margin: 0 0 8px;
+    font-family: "Zain", sans-serif;
+    font-size: 1.95rem;
+    line-height: 0.95;
+    color: #2C6E7F;
+}
+
+.DescripcionTarjeta {
+    margin: 0 0 14px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #243238;
+}
+
+.FormularioAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.GrupoCampo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.GrupoCampo label {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #243238;
+}
+
+.GrupoCampo input,
+.GrupoCampo select,
+.GrupoCampo textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(44, 110, 127, 0.18);
+    border-radius: 12px;
+    padding: 11px 13px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.92rem;
+    color: #243238;
+    background: rgba(255, 255, 255, 0.96);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.GrupoCampo input:focus,
+.GrupoCampo select:focus,
+.GrupoCampo textarea:focus {
+    border-color: #2C6E7F;
+    box-shadow: 0 0 0 3px rgba(44, 110, 127, 0.10);
+}
+
+.GrupoCampo textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.FilaDoble {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.FilaAcciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.BotonPrimario,
+.BotonSecundario,
+.BotonEditar,
+.BotonEstado {
+    border: none;
+    border-radius: 10px;
+    padding: 0.72rem 1.05rem;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    line-height: 1.1;
+}
+
+.BotonPrimario {
+    background-color: #2f7f93;
+    color: #ffffff;
+}
+
+.BotonPrimario:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+.BotonEditar {
+    background-color: #f5ded8;
+    color: #d67557;
+    border: 1px solid #efc8bd;
+    box-shadow: none;
+}
+
+.BotonEditar:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+.BotonSecundario {
+    background-color: #d7ece7;
+    color: #2f6f66;
+    border: 1px solid #bdded7;
+    box-shadow: none;
+}
+
+.BotonSecundario:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+.BotonEstado {
+    background-color: #d7ece7;
+    color: #2f6f66;
+    border: 1px solid #bdded7;
+    box-shadow: none;
+}
+
+.BotonEstado:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+.BotonPrimario:disabled,
+.BotonSecundario:disabled,
+.BotonEditar:disabled,
+.BotonEstado:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.TablaAdmin {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: "Quicksand", sans-serif;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(44, 110, 127, 0.10);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.TablaAdmin thead th {
+    background: #e5f0f1;
+    color: #2C6E7F;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(44, 110, 127, 0.08);
+    white-space: nowrap;
+}
+
+.TablaAdmin tbody td {
+    padding: 12px 12px;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: #243238;
+    border-bottom: 1px solid rgba(44, 110, 127, 0.08);
+    vertical-align: top;
+}
+
+.TablaAdmin tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.TablaAdmin tbody tr:hover {
+    background: rgba(44, 110, 127, 0.025);
+}
+
+.TablaAdmin tbody td:nth-child(1) {
+    font-weight: 700;
+    color: #243238;
+    white-space: nowrap;
+}
+
+.TablaAdmin tbody td:nth-child(2),
+.TablaAdmin tbody td:nth-child(3),
+.TablaAdmin tbody td:nth-child(4) {
+    max-width: 150px;
+}
+
+.EtiquetaRol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 74px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+.RolAdmin {
+    background: #dff0ea;
+    color: #2f7f66;
+    border: 1px solid #c9e7df;
+}
+
+.RolCliente {
+    background: #f7e4df;
+    color: #c96b52;
+    border: 1px solid #efd0c6;
+}
+
+.MensajeFormulario {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .GridAdmin {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .TarjetaAdmin {
+        padding: 18px 16px;
+        border-radius: 18px;
+    }
+
+    .TituloTarjeta {
+        font-size: 1.75rem;
+    }
+
+    .FilaDoble {
+        grid-template-columns: 1fr;
+    }
+
+    .FilaAcciones {
+        flex-direction: column;
+    }
+
+    .BotonPrimario,
+    .BotonSecundario,
+    .BotonEditar,
+    .BotonEstado {
+        width: 100%;
+    }
+
+    .TablaAdmin {
+        min-width: 760px;
+    }
+}
