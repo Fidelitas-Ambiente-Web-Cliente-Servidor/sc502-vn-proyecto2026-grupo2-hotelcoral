@@ -436,3 +436,7 @@
         transform: translateY(0);
     }
 }
+
+#EnlaceAdmin[hidden] {
+    display: none !important;
+}

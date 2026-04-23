@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Coral | Inicio</title>
+
     <link rel="stylesheet" href="css/HeaderStyle.css">
     <link rel="stylesheet" href="css/FooterStyle.css">
     <link rel="stylesheet" href="css/Global.css">
     <link rel="stylesheet" href="css/IndexStyles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,233 +23,182 @@
 <body>
     <header id="FragmentoHeader"></header>
 
-    <main>
-        <main class="ContenidoPrincipal">
+    <main class="ContenidoPrincipal">
 
-            <section class="SeccionHero" id="Inicio">
-                <div class="FondoHero"></div>
-                <div class="ContenedorHero">
-                    <span class="EtiquetaHero EtiquetaLogoHero">
-                        <img src="Recursos/Global/LogoCoral.svg" alt="Logo Coral Hotel" class="ImagenLogoHero">
-                    </span>
+        <section class="SeccionHero" id="Inicio">
+            <div class="FondoHero"></div>
 
-                    <h1 class="TituloHero">
-                        Vive la Esencia de <span class="TextoResaltado">Costa Rica</span>
-                    </h1>
+            <div class="ContenedorHero">
+                <span class="EtiquetaHero EtiquetaLogoHero">
+                    <img src="Recursos/Global/LogoCoral.svg" alt="Logo Coral Hotel" class="ImagenLogoHero">
+                </span>
 
-                    <p class="TextoHero">
-                        Descubre un paraiso tropical y La mejor experiencia natural que te puedas encontrar
-                        en toda Centro America.
+                <h1 class="TituloHero">
+                    Vive la Esencia de <span class="TextoResaltado">Costa Rica</span>
+                </h1>
+
+                <p class="TextoHero">
+                    Descubre una experiencia costera cálida, natural y acogedora en Hotel Coral.
+                </p>
+
+                <div class="AccionesHero">
+                    <a class="Boton BotonPrimario" id="BotonExplorarHabitaciones" href="Habitaciones.html">
+                        Explorar Habitaciones
+                    </a>
+
+                    <a class="Boton BotonSecundario" id="BotonExplorarServicios" href="Servicios.html">
+                        Ver servicios
+                    </a>
+
+                    <a class="Boton BotonTerciario" id="BotonReservarAhora" href="Reservas.html">
+                        Reservar ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="SeccionHabitaciones SeccionGeneral" id="Habitaciones">
+            <div class="EncabezadoSeccion">
+                <div class="BloqueTitulos">
+                    <p class="SubtituloSeccion">Alojamiento de lujo</p>
+                    <h2 class="TituloSeccion">Nuestras Habitaciones</h2>
+                    <p class="DescripcionSeccion">
+                        Descubre algunos de nuestros tipos de habitación y encuentra la opción ideal para tu próxima
+                        estadía.
                     </p>
-
-                    <div class="AccionesHero">
-                        <button class="Boton BotonPrimario" id="BotonExplorarHabitaciones" type="button">
-                            Explorar Habitaciones
-                        </button>
-
-                        <a class="Boton BotonSecundario" id="BotonVerTour" href="https://youtu.be/Uh5eZgjtv0s?t=4439"
-                            target="_blank" rel="noopener noreferrer">
-                            Ver Video Tour
-                        </a>
-                    </div>
                 </div>
 
-            </section>
+                <a href="Habitaciones.html" class="EnlaceSeccion">Ver todas las habitaciones</a>
+            </div>
 
-            <section class="SeccionHabitaciones SeccionGeneral" id="Habitaciones">
-                <div class="EncabezadoSeccion">
-                    <div class="BloqueTitulos">
-                        <p class="SubtituloSeccion">Alojamiento de lujo</p>
-                        <h2 class="TituloSeccion">Nuestras Habitaciones</h2>
-                        <p class="DescripcionSeccion">
-                            Habitaciones Para que te pases las mejores vacaciones de tu vida, en una zona relajante y
-                            Tropical.
-                        </p>
-                    </div>
+            <div id="EstadoHabitacionesIndex" class="EstadoResumen">
+                Cargando habitaciones destacadas...
+            </div>
 
-                    <a href="Habitaciones.html" class="EnlaceSeccion">Ver todas las Habitaciones</a>
+            <div class="CuadriculaHabitaciones" id="ListaHabitaciones"></div>
+        </section>
+
+        <section class="SeccionServicios SeccionGeneral" id="Servicios">
+            <div class="EncabezadoSeccion EncabezadoCentrado">
+                <p class="SubtituloSeccion">Experiencias inolvidables</p>
+                <h2 class="TituloSeccion">Servicios destacados</h2>
+                <p class="DescripcionSeccion DescripcionCentrada">
+                    Algunos de los servicios disponibles para complementar tu estadía en Hotel Coral.
+                </p>
+            </div>
+
+            <div id="EstadoServiciosIndex" class="EstadoResumen">
+                Cargando servicios destacados...
+            </div>
+
+            <div class="CuadriculaServicios" id="ListaServicios"></div>
+
+            <div class="ContenedorAccionSeccion">
+                <a href="Servicios.html" class="Boton BotonPrimario BotonSeccion">
+                    Ver catálogo completo
+                </a>
+            </div>
+        </section>
+
+        <section class="SeccionComentarios SeccionGeneral" id="Comentarios">
+            <div class="EncabezadoSeccion">
+                <div class="BloqueTitulos">
+                    <p class="SubtituloSeccion">Visitantes</p>
+                    <h2 class="TituloSeccion">Voces de nuestros huéspedes</h2>
+                    <p class="DescripcionSeccion">
+                        Comentarios recientes de huéspedes que compartieron su experiencia con nosotros.
+                    </p>
                 </div>
 
-                <div class="CuadriculaHabitaciones" id="ListaHabitaciones">
+                <div class="ControlesComentarios">
+                    <button class="BotonControlComentario" id="BotonComentarioAnterior" type="button"
+                        aria-label="Comentario anterior">
+                        <img src="https://img.icons8.com/sf-black-filled/64/243238/back.png" alt=""
+                            class="IconoControlComentario">
+                    </button>
 
-                    <article class="TarjetaHabitacion" data-id-habitacion="1" data-categoria="Deluxe">
-                        <div class="ImagenTarjetaHabitacion"></div>
-
-                        <div class="ContenidoTarjetaHabitacion">
-                            <div class="EncabezadoTarjetaHabitacion">
-                                <h3 class="TituloTarjetaHabitacion">Habitacion Deluxe</h3>
-                                <p class="PrecioTarjetaHabitacion">$300 <span>/noche</span></p>
-                            </div>
-
-                            <p class="DescripcionTarjetaHabitacion">
-                                Habitacion deluxe con vistas al mar.
-                            </p>
-
-                            <ul class="ListaDetallesTarjeta">
-                                <li>WiFi gratis</li>
-                                <li>Aire acondicionado</li>
-                                <li>Cama king</li>
-                            </ul>
-
-                            <a class="Boton BotonTarjeta" href="Reservas.html?IdHabitacion=1">
-                                Ver detalles
-                            </a>
-                        </div>
-                    </article>
-
+                    <button class="BotonControlComentario" id="BotonComentarioSiguiente" type="button"
+                        aria-label="Comentario siguiente">
+                        <img src="https://img.icons8.com/sf-black-filled/64/243238/forward.png" alt=""
+                            class="IconoControlComentario">
+                    </button>
                 </div>
-            </section>
+            </div>
 
-            <section class="SeccionServicios SeccionGeneral" id="Servicios">
-                <div class="EncabezadoSeccion EncabezadoCentrado">
-                    <p class="SubtituloSeccion">Experiencias inolvidables</p>
-                    <h2 class="TituloSeccion">Servicios Exclusivos</h2>
-                </div>
+            <div id="EstadoComentariosIndex" class="EstadoResumen">
+                Cargando comentarios destacados...
+            </div>
 
-                <div class="CuadriculaServicios">
-                    <article class="TarjetaServicio">
-                        <div class="IconoServicio">
-                            <img src="https://img.icons8.com/sf-black-filled/64/2c6e7f/lotus.png" alt="Spa"
-                                class="ImagenIconoServicio">
-                        </div>
-                        <h3 class="TituloTarjetaServicio">Spa & Bienestar</h3>
-                        <p class="TextoTarjetaServicio">
-                            Si deseas relajarte despues de un dia lleno de aventuras, nuestro spa es lo que nesecitas.
-                        </p>
-                    </article>
+            <div class="CarruselComentarios" id="CarruselComentarios"></div>
 
-                    <article class="TarjetaServicio">
-                        <div class="IconoServicio">
-                            <img src="https://img.icons8.com/ios-filled/50/2c6e7f/tableware.png" alt="Restaurante"
-                                class="ImagenIconoServicio">
-                        </div>
-                        <h3 class="TituloTarjetaServicio">Restaurante Coral</h3>
-                        <p class="TextoTarjetaServicio">
-                            Un lugar en donde puedes encontrar las delicias que ofrece el pais.
-                        </p>
-                    </article>
-
-                    <article class="TarjetaServicio">
-                        <div class="IconoServicio">
-                            <img src="https://img.icons8.com/ios-filled/50/2c6e7f/holding-spyglass.png"
-                                alt="holding-spyglass" alt="Tours" class="ImagenIconoServicio">
-                        </div>
-                        <h3 class="TituloTarjetaServicio">Tours & Aventura</h3>
-                        <p class="TextoTarjetaServicio">
-                            Explora nuestras instalaciones y la Hermosa playa de la que disponen todos los
-                            costarricenses
-                        </p>
-                    </article>
-
-                    <article class="TarjetaServicio">
-                        <div class="IconoServicio">
-                            <img src="https://img.icons8.com/ios-filled/50/2c6e7f/volleyball-2.png" alt="Eventos"
-                                class="ImagenIconoServicio">
-                        </div>
-                        <h3 class="TituloTarjetaServicio">Eventos</h3>
-                        <p class="TextoTarjetaServicio">
-                            Organizamos todo tipo de eventos en nuestras instalaciones, mantente al tanto e inscribete.
-                        </p>
-                    </article>
-                </div>
-            </section>
-
-
-            <section class="SeccionComentarios SeccionGeneral" id="Comentarios">
-                <div class="EncabezadoSeccion">
-                    <div class="BloqueTitulos">
-                        <p class="SubtituloSeccion">Visitantes</p>
-                        <h2 class="TituloSeccion">Voces de Nuestros Huespedes</h2>
-                    </div>
-
-                    <div class="ControlesComentarios">
-                        <button class="BotonControlComentario" id="BotonComentarioAnterior" type="button"
-                            aria-label="Comentario anterior">
-                            <img src="https://img.icons8.com/sf-black-filled/64/243238/back.png" alt="" class="IconoControlComentario">
-                        </button>
-
-                        <button class="BotonControlComentario" id="BotonComentarioSiguiente" type="button"
-                            aria-label="Comentario siguiente">
-                            <img src="https://img.icons8.com/sf-black-filled/64/243238/forward.png" alt="" class="IconoControlComentario">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="CarruselComentarios" id="CarruselComentarios">
-                    <article class="TarjetaComentario">
-                        <div class="EstrellasComentario">★★★★★</div>
-                        <p class="TextoComentario">
-                            “El hotel fue increíble, la vista al mar y el servicio fueron excelentes.
-                            Definitivamente volvería.”
-                        </p>
-
-                        <div class="AutorComentario">
-                            <div class="AvatarComentario AvatarComentarioUno"></div>
-                            <div>
-                                <h3 class="NombreComentario">Stacy Ramírez</h3>
-                                <p class="PaisComentario">Puntarenas</p>
-                            </div>
-                        </div>
-
-                        <div class="RespuestaComentarioHotel">
-                            <h4 class="TituloRespuestaComentario">Hotel Coral</h4>
-                            <p class="TextoRespuestaComentario">
-                                Muchas gracias por tu visita Stacy. Nos alegra saber que disfrutaste la
-                                vista al mar y nuestro servicio. ¡Esperamos recibirte nuevamente pronto!
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="TarjetaComentario">
-                        <div class="EstrellasComentario">★★★★☆</div>
-                        <p class="TextoComentario">
-                            “Me encantó la vista al mar en Guanacaste. Muy buena atención del personal.”
-                        </p>
-
-                        <div class="AutorComentario">
-                            <div class="AvatarComentario AvatarComentarioDos"></div>
-                            <div>
-                                <h3 class="NombreComentario">Dyban León</h3>
-                                <p class="PaisComentario">Guanacaste</p>
-                            </div>
-                        </div>
-
-                        <div class="RespuestaComentarioHotel">
-                            <h4 class="TituloRespuestaComentario">Hotel Coral</h4>
-                            <p class="TextoRespuestaComentario">
-                                Gracias por compartir tu experiencia Dyban. Nos alegra saber que disfrutaste
-                                tu estancia en Guanacaste. ¡Te esperamos nuevamente!
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="TarjetaComentario">
-                        <div class="EstrellasComentario">★★★☆☆</div>
-                        <p class="TextoComentario">
-                            “El hotel en Limón es hermoso, muy cerca de la playa y el personal es muy amable.”
-                        </p>
-
-                        <div class="AutorComentario">
-                            <div class="AvatarComentario AvatarComentarioTres"></div>
-                            <div>
-                                <h3 class="NombreComentario">Alessandra Meza</h3>
-                                <p class="PaisComentario">Limón</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-
-        </main>
+            <div class="ContenedorAccionSeccion">
+                <a href="Comentarios.html" class="Boton BotonSecundario BotonSeccion">
+                    Ver más comentarios
+                </a>
+            </div>
+        </section>
 
     </main>
 
+    <template id="PlantillaHabitacionIndex">
+        <article class="TarjetaHabitacion">
+            <div class="ImagenTarjetaHabitacion"></div>
+
+            <div class="ContenidoTarjetaHabitacion">
+                <div class="EncabezadoTarjetaHabitacion">
+                    <h3 class="TituloTarjetaHabitacion"></h3>
+                    <p class="PrecioTarjetaHabitacion"></p>
+                </div>
+
+                <p class="DescripcionTarjetaHabitacion"></p>
+
+                <ul class="ListaDetallesTarjeta"></ul>
+
+                <a class="Boton BotonTarjeta" href="#">
+                    Reservar esta opción
+                </a>
+            </div>
+        </article>
+    </template>
+
+    <template id="PlantillaServicioIndex">
+        <article class="TarjetaServicio">
+            <div class="IconoServicio">
+                <img class="ImagenIconoServicio" src="" alt="Servicio">
+            </div>
+
+            <h3 class="TituloTarjetaServicio"></h3>
+            <p class="HotelServicioIndex"></p>
+            <p class="TextoTarjetaServicio"></p>
+            <p class="PrecioServicioIndex"></p>
+        </article>
+    </template>
+
+    <template id="PlantillaComentarioIndex">
+        <article class="TarjetaComentario">
+            <div class="EstrellasComentario"></div>
+
+            <p class="TextoComentario"></p>
+
+            <div class="AutorComentario">
+                <div class="AvatarComentario AvatarComentarioGenerico"></div>
+                <div>
+                    <h3 class="NombreComentario"></h3>
+                    <p class="PaisComentario"></p>
+                </div>
+            </div>
+
+            <div class="RespuestaComentarioHotel RespuestaComentarioHotelOculta">
+                <h4 class="TituloRespuestaComentario">Hotel Coral</h4>
+                <p class="TextoRespuestaComentario"></p>
+            </div>
+        </article>
+    </template>
+
     <footer id="FragmentoFooter"></footer>
 
-
     <script src="js/CargarFragmento.js"></script>
-    <script src="js/Index.js"></script>
+    <script src="js/Publico/Index.js"></script>
     <script src="js/Header.js"></script>
 </body>
 

@@ -1,68 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    InicializarDesplazamientoHero();
-    InicializarCarruselComentarios();
-    InicializarFormularioSuscripcion();
-    InicializarBotonesHabitaciones();
+    InicializarAnimacionesIndex();
 });
 
-function InicializarDesplazamientoHero() {
-    const BotonExplorarHabitaciones = document.getElementById("BotonExplorarHabitaciones");
-
-    if (!BotonExplorarHabitaciones) return;
-
-    BotonExplorarHabitaciones.addEventListener("click", () => {
-        const SeccionHabitaciones = document.getElementById("Habitaciones");
-
-        if (SeccionHabitaciones) {
-            SeccionHabitaciones.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    });
+function InicializarAnimacionesIndex() {
+    ConfigurarAnimacionHero();
 }
 
-function InicializarCarruselComentarios() {
-    const CarruselComentarios = document.getElementById("CarruselComentarios");
-    const BotonComentarioAnterior = document.getElementById("BotonComentarioAnterior");
-    const BotonComentarioSiguiente = document.getElementById("BotonComentarioSiguiente");
+function ConfigurarAnimacionHero() {
+    const ContenedorHero = document.querySelector(".ContenedorHero");
 
-    if (!CarruselComentarios || !BotonComentarioAnterior || !BotonComentarioSiguiente) return;
+    if (!ContenedorHero) {
+        return;
+    }
 
-    const DistanciaScroll = 380;
+    ContenedorHero.style.opacity = "0";
+    ContenedorHero.style.transform = "translateY(18px)";
+    ContenedorHero.style.transition = "opacity 0.6s ease, transform 0.6s ease";
 
-    BotonComentarioAnterior.addEventListener("click", () => {
-        CarruselComentarios.scrollBy({
-            left: -DistanciaScroll,
-            behavior: "smooth"
-        });
-    });
-
-    BotonComentarioSiguiente.addEventListener("click", () => {
-        CarruselComentarios.scrollBy({
-            left: DistanciaScroll,
-            behavior: "smooth"
-        });
+    requestAnimationFrame(() => {
+        ContenedorHero.style.opacity = "1";
+        ContenedorHero.style.transform = "translateY(0)";
     });
 }
-
-
-
-function InicializarBotonesHabitaciones() {
-    const BotonesDetalles = document.querySelectorAll('[data-accion="VerDetallesHabitacion"]');
-
-    BotonesDetalles.forEach((Boton) => {
-        Boton.addEventListener("click", () => {
-            const TarjetaHabitacion = Boton.closest(".TarjetaHabitacion");
-            const IdHabitacion = TarjetaHabitacion?.dataset.idHabitacion || "SinId";
-            const Categoria = TarjetaHabitacion?.dataset.categoria || "SinCategoria";
-
-            console.log("Habitación seleccionada:", {
-                IdHabitacion,
-                Categoria
-            });
-
-        });
-    });
-}
-

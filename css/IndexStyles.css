@@ -639,3 +639,135 @@ a {
         width: 34px;
     }
 }
+
+
+.ContenidoPrincipal {
+    width: 100%;
+}
+
+.DescripcionCentrada {
+    max-width: 720px;
+    margin: 12px auto 0;
+    text-align: center;
+}
+
+.EstadoResumen {
+    margin-top: 8px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(127, 214, 207, 0.08);
+    border: 1px dashed rgba(44, 110, 127, 0.16);
+    color: var(--TextSoft);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+}
+
+.BotonTerciario {
+    min-width: 210px;
+    min-height: 54px;
+    padding: 14px 24px;
+    border-radius: 14px;
+    background-color: rgba(217, 123, 93, 0.92);
+    color: var(--White);
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+}
+
+.BotonTerciario:hover {
+    transform: translateY(-2px);
+    background-color: #c8684b;
+}
+
+.ContenedorAccionSeccion {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.BotonSeccion {
+    min-width: 220px;
+    min-height: 50px;
+    border-radius: 14px;
+    padding: 12px 18px;
+}
+
+.CuadriculaHabitaciones {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 28px;
+}
+
+.TarjetaHabitacion {
+    max-width: none !important;
+    width: 100%;
+}
+
+.ImagenTarjetaHabitacion {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.CuadriculaServicios {
+    align-items: stretch;
+}
+
+.TarjetaServicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.HotelServicioIndex {
+    margin: 0 0 10px;
+    color: var(--OceanDeep);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.PrecioServicioIndex {
+    margin: 14px 0 0;
+    color: var(--OceanDeep);
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.RespuestaComentarioHotelOculta {
+    display: none;
+}
+
+.AvatarComentarioGenerico {
+    background: linear-gradient(135deg, var(--SeaTurquoise), var(--LagoonLight));
+}
+
+@media (max-width: 1024px) {
+    .CuadriculaHabitaciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .CuadriculaHabitaciones {
+        grid-template-columns: 1fr !important;
+    }
+
+    .ContenedorAccionSeccion {
+        justify-content: stretch;
+    }
+
+    .BotonSeccion {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .BotonPrimario,
+    .BotonSecundario,
+    .BotonTerciario {
+        width: 100%;
+    }
+}
