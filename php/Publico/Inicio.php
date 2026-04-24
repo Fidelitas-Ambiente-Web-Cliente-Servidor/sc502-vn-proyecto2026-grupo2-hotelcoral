@@ -110,7 +110,7 @@ try {
      * COMENTARIOS DESTACADOS
      * Solo aprobados.
      */
-    $ConsultaComentarios = $Conexion->prepare("
+   $ConsultaComentarios = $Conexion->prepare("
         SELECT
             C.ID_COMENTARIO,
             CONCAT(U.NOMBRE, ' ', U.APELLIDO) AS AUTOR,
@@ -119,12 +119,8 @@ try {
             C.COMENTARIO,
             C.RESPUESTA_ADMIN
         FROM COR_COMENTARIOS_TB C
-        INNER JOIN COR_RESERVAS_TB R
-            ON R.ID_RESERVA = C.ID_RESERVA
-        INNER JOIN COR_USUARIOS_TB U
-            ON U.ID_USUARIO = R.ID_USUARIO
-        INNER JOIN COR_HOTELES_TB H
-            ON H.ID_HOTEL = R.ID_HOTEL
+        LEFT JOIN COR_USUARIOS_TB U ON U.ID_USUARIO = C.ID_USUARIO
+        LEFT JOIN COR_HOTELES_TB H ON H.ID_HOTEL = C.ID_HOTEL
         WHERE C.ESTADO_COMENTARIO = 'APROBADO'
         ORDER BY C.FECHA_COMENTARIO DESC, C.ID_COMENTARIO DESC
         LIMIT 5
@@ -145,7 +141,7 @@ try {
 
     $ConsultaComentarios->close();
     $Conexion->close();
-
+    
     ResponderJson(true, "Inicio cargado correctamente.", [
         "Habitaciones" => $Habitaciones,
         "Servicios" => $Servicios,
